@@ -1,2 +1,4 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
+h2 利用中のサービス
+
+.service-list
+  = render partial: "services/service", collection: @services, as: :service
