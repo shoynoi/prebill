@@ -9,5 +9,9 @@
     = service.renewed_on
   .service__notified_on
     = service.notified_on
-  .service_description
+  .service__description
     = service.description
+  .service-actions
+    = link_to "編集", edit_service_path(service), class: "service-actions__item"
+    = link_to "削除", service_path(service), method: :delete, data: { confirm: "本当によろしいですか?" }, class: "service-actions__item"
+
