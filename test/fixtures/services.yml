@@ -1,17 +1,15 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  description: MyText
-  plan: 1
-  price: 1
-  renewed_on: 2019-12-29
-  notified_on: 2019-12-29
+service_1:
+  name: Spotify
+  description: テストメモ
+  plan: 0
+  price: 980
+  renewed_on: <%= Time.current + 1.month %>
+  notified_on: <%= Time.current + 1.week %>
 
 two:
-  name: MyString
-  description: MyText
+  name: Amazon Prime
+  description: 解約予定
   plan: 1
-  price: 1
-  renewed_on: 2019-12-29
-  notified_on: 2019-12-29
+  price: 4800
+  renewed_on: <%= Time.current + 3.month %>
+  notified_on: <%= Time.current + 1.month %>
