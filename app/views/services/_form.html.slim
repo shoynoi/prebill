@@ -1,0 +1,25 @@
+= form_with model: service do |f|
+  .form__items
+    .form-item
+      = f.label :name, class: "a-label form-item__label"
+      = f.text_field :name, class: "a-text-input form-item__text-input", placeholder: "サービス名"
+    .form-item
+      = f.label :plan, class: "a-label form-item__label"
+      = f.select :plan, Service.plans.keys.map { |k| [t("activerecord.enums.service.plan.#{k}"), k] }, class: "form-item__select"
+    .form-item
+      = f.label :price, class: "a-label form-item__label"
+      = f.number_field :price, class: "form-item__number"
+    .form-item
+      = f.label :renewed_on, class: "a-label form-item__label"
+      = f.date_field :renewed_on, class: "form-item__date"
+    .form-item
+      = f.label :notified_on, class: "a-label form-item__label"
+      = f.date_field :notified_on, class: "form-item__date"
+
+  .form-actions
+    ul.form-actions__items
+      li.form-actions__item
+        = f.submit "登録", class: "a-button"
+      li.form-actions__item
+        = link_to "キャンセル", root_path, class: "a-button"
+
