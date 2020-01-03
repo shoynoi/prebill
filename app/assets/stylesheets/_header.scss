@@ -44,16 +44,22 @@
   position: relative;
   color: rgba(38,52,74,.5);
   cursor: pointer;
-  &:hover {
-    color: rgba(38,52,74,.7);
-    background-color: rgba(4,15,26,.05);
-  }
 }
 
 .header-nav__item--label {
   font-weight: bold;
-  //color: #545454;
-  padding-right: .45rem;
+  padding: 2px 7px;
+  &::after {
+    font-weight: 900;
+    content: "\f0d7";
+    font-family: "Font Awesome 5 Free";
+    margin-left: .3rem;
+  }
+  &:hover {
+    color: rgba(38, 52, 74, 0.7);
+    background-color: rgba(4, 15, 26, 0.05);
+    border-radius: 4px;
+  }
 }
 
 .header-nav__item--input {
