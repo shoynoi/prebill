@@ -1,0 +1,18 @@
+header.header
+  .header__container
+    h1.header__title PreBill
+    nav.header-nav
+      .header-nav__items
+        .header-nav__item
+          label.header-nav__item--link(for="header-user-menu")
+            .header-nav__item--label shoynoi
+            i.fas.fa-caret-down
+          input.header-nav__item--input#header-user-menu(type="checkbox")
+          .header-dropdown
+            label.header-dropdown__background(for="header-user-menu")
+            .header-dropdown__inner
+              ul.header-dropdown__items
+                li.header-dropdown__item
+                  = link_to "ユーザー設定", "https://google.com", class: "header-dropdown__item-link"
+                li.header-dropdown__item
+                  = link_to "ログアウト", "#", class: "header-dropdown__item-link"

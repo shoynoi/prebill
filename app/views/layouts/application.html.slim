@@ -7,8 +7,9 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
   body
-    header
-      h1 PreBill
-    = render "flash"
-    = yield
+    = render "header"
+    .container
+      = render "flash"
+      = yield

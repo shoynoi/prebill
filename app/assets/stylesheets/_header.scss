@@ -1,0 +1,106 @@
+.header {
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 4%;
+  height: 44px;
+  width: 100%;
+}
+
+.header__title {
+  font-size: 1.835rem;
+  font-family: "American Typewriter";
+  height: 100%;
+}
+
+.header-nav {
+  height: 100%;
+}
+
+.header-nav__items {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header-nav__item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header-nav__item--link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  color: rgba(38,52,74,.5);
+  cursor: pointer;
+  &:hover {
+    color: rgba(38,52,74,.7);
+    background-color: rgba(4,15,26,.05);
+  }
+}
+
+.header-nav__item--label {
+  font-weight: bold;
+  //color: #545454;
+  padding-right: .45rem;
+}
+
+.header-nav__item--input {
+  display: none;
+}
+
+.header-dropdown {
+  display: none;
+  input:checked + & {
+    display: block;
+  }
+}
+
+.header-dropdown__items {
+  list-style: none;
+  :not(:last-child) {
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+.header-dropdown__inner {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 2;
+  border: 1px solid #ddd;
+  border-radius: .25rem;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.08);
+  width: 10rem;
+  background-color: white;
+}
+
+.header-dropdown__item:hover {
+  background-color: #F3F3F3;
+}
+
+.header-dropdown__item-link {
+  padding: .75rem;
+  display: block;
+  font-size: .875rem;
+}
+
+.header-dropdown__background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+}
