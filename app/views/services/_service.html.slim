@@ -1,17 +1,23 @@
-.service
-  .service__name
-    = service.name
-  .service__plan
-    = t "activerecord.enums.service.plan.#{service.plan}"
-  .service__price
-    = service.price
-  .service__renewed_on
-    = service.renewed_on
-  .service__notified_on
-    = service.notified_on
-  .service__description
-    = service.description
-  .service-actions
-    = link_to "編集", edit_service_path(service), class: "service-actions__item"
-    = link_to "削除", service_path(service), method: :delete, data: { confirm: "本当によろしいですか?" }, class: "service-actions__item"
-
+.service-info
+  input.service-info__expand--link id="service-#{service.id}" type="checkbox"
+  .service-info--display
+    .service-info__item--wide
+      span.service-info__name = service.name
+    .service-info__item--narrow
+      span.service-info__plan = t "activerecord.enums.service.plan.#{service.plan}"
+    .service-info__item--narrow
+      span.service-info__price = service.price
+    .service-info__item
+      span.service-info__renewed_on = service.renewed_on
+    .service-info__item
+      span.service-info__notified_on = service.notified_on
+    .service-info__item--narrow--center
+      label.service-info__expand(for="service-#{service.id}")
+  .service-info--expandable
+    .service-info__memo
+      span.service-info__memo = service.description
+    .service-info__actions
+      .service-info__action
+        = link_to "編集", edit_service_path(service), class: "service-info__action--edit"
+      .service-info__action
+        = link_to "削除", service_path(service), method: :delete, data: { confirm: "本当によろしいですか?" }, class: "service-info__action--delete"

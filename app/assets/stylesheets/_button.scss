@@ -1,0 +1,21 @@
+.button {
+  border: 1px solid #2274E5;
+  padding: .45rem 2rem;
+  font-size: .9rem;
+  font-weight: 800;
+  color: white;
+  background-color: #2274E5;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  user-select: none;
+  transition: all ease-out .2s;
+  i {
+    padding-right: .25rem;
+  }
+  &:hover {
+    background-color: #1267E6;
+    border-color: #2274E5;
+  }
+}
