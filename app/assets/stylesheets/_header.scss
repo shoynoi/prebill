@@ -1,6 +1,5 @@
 .header {
-  border-bottom: 1px solid #ddd;
-  background: #fff;
+  background: #1A5084;
 }
 
 .header__container {
@@ -17,6 +16,7 @@
 .header__title {
   font-size: 1.835rem;
   font-family: "American Typewriter";
+  color: #fafafa;
   height: 100%;
 }
 
@@ -49,6 +49,7 @@
 .header-nav__item--label {
   font-weight: bold;
   padding: 2px 7px;
+   color: #fafafa;
   &::after {
     font-weight: 900;
     content: "\f0d7";
@@ -56,8 +57,8 @@
     margin-left: .3rem;
   }
   &:hover {
-    color: rgba(38, 52, 74, 0.7);
-    background-color: rgba(4, 15, 26, 0.05);
+    color: white;
+    background-color: rgba(255,255,255,0.2);
     border-radius: 4px;
   }
 }
