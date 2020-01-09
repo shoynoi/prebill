@@ -5,6 +5,7 @@
 
 .form-items__inner {
   max-width: 18.5rem;
+  max-width: -webkit-fit-content;
 }
 
 .form-item {
@@ -16,6 +17,7 @@
   font-weight: 600;
   font-size: 0.875rem;
   text-align: right;
+  padding-top: 9px;
   padding-right: 2rem;
   width: 7rem;
   top: 0;
