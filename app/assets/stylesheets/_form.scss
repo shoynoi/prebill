@@ -1,13 +1,15 @@
 .form__items {
-  width: 40rem;
   margin: 0 auto;
-  max-width: 100%;
+  max-width: 37.5rem;
+}
+
+.form-items__inner {
+  max-width: 18.5rem;
 }
 
 .form-item {
   margin-bottom: 1.5rem;
   display: flex;
-  position: relative;
 }
 
 .form-item__label {
@@ -22,19 +24,19 @@
 }
 
 .form-item__text-input {
-  border: 1px solid rgba(34,36,38,.15);
+  border: 1px solid rgba(34 ,36 ,38 , .15);
   border-radius: .25rem;
   padding: .45rem;
   font-size: .875rem;
   color: black;
-  width: 75%;
+  flex: 1 1 auto;
 }
 
 .form-item__select {
   padding: .45rem 2rem .45rem .45rem;
   font-size: .875rem;
   color: black;
-  width: 10rem;
+  width: 100%;
   z-index: 1;
   position: relative;
   cursor: pointer;
@@ -42,10 +44,11 @@
 
 .is-select {
   position: relative;
-  border: 1px solid rgba(34,36,38,.15);
+  border: 1px solid rgba(34, 36, 38, .15);
   border-radius: .25rem;
+  flex: 1 1 auto;
   &:hover {
-    border: 1px solid rgba(34,36,38,.3);
+    border: 1px solid rgba(34, 36, 38, .3);
     border-radius: .25rem;
   }
 }
@@ -62,39 +65,20 @@
   color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
-  width: 2rem;
   justify-content: center;
-}
-
-.form-item__number {
-  border: 1px solid rgba(34,36,38,.15);
-  border-radius: .25rem;
-  padding: .45rem;
-  font-size: .875rem;
-  color: black;
-  width: 10rem;
-}
-
-.form-item__date {
-  border: 1px solid rgba(34,36,38,.15);
-  border-radius: .25rem;
-  padding: .45rem;
-  font-size: .875rem;
-  color: black;
-  width: 75%;
+  width: 2rem;
 }
 
 .form-item__textarea {
-  border: 1px solid rgba(34,36,38,.15);
+  border: 1px solid rgba(34, 36, 38, .15);
   border-radius: .25rem;
   padding: .45rem;
   font-size: .875rem;
   color: black;
-  min-height: 4rem;
+  min-height: 5rem;
   height: 6rem;
-  width: 75%;
-  overflow: visible;
   resize: vertical;
+  flex: 1 1 auto;
 }
 
 .form-actions__items {
