@@ -1,3 +1,8 @@
-h2 編集
+header.page-header
+  h2.page-header__title サービス修正
+  .page-header__actions
+    = link_to root_path, class: "btn--full btn--md btn--secondary" do
+      | 一覧
 
-= render "form", service: @service
+.page-body
+  = render "form", service: @service
