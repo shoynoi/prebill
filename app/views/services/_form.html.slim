@@ -24,6 +24,9 @@
   .form-actions
     ul.form-actions__items
       li.form-actions__item
-        = f.submit "登録", class: "btn--full btn--primary btn--lg"
+        - if service.new_record?
+          = f.submit "登録", class: "btn--full btn--primary btn--lg"
+        - else
+          = f.submit "修正", class: "btn--full btn--primary btn--lg"
       li.form-actions__item--cancel
         = link_to "キャンセル", root_path, class: "btn btn--secondary btn--md"
