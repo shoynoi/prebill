@@ -18,6 +18,6 @@
       span.service-info__memo = service.description
     .service-info__actions
       .service-info__action
-        = link_to "編集", edit_service_path(service), class: "service-info__action--edit"
+        = link_to "修正", edit_service_path(service), class: "btn--full btn--sm btn--secondary"
       .service-info__action
-        = link_to "削除", service_path(service), method: :delete, data: { confirm: "本当によろしいですか?" }, class: "service-info__action--delete"
+        = link_to "削除", service_path(service), method: :delete, data: { confirm: "本当によろしいですか?" }, class: "btn--full btn--sm btn--danger"
