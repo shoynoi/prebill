@@ -1,5 +1,5 @@
 .header {
-  background: #1A5084;
+  background-color: #1A5084;
 }
 
 .header__container {
@@ -9,15 +9,23 @@
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 4%;
-  height: 44px;
+  height: 3rem;
   width: 100%;
 }
 
 .header__title {
   font-size: 1.835rem;
   font-family: "American Typewriter";
+}
+
+.header__title--link {
   color: #fafafa;
-  height: 100%;
+  text-decoration: none;
+  &:hover {
+    color: white;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 4px;
+  }
 }
 
 .header-nav {
