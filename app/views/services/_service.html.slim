@@ -1,23 +1,23 @@
-.service-info
-  input.service-info__expand--link id="service-#{service.id}" type="checkbox"
-  .service-info--display
-    .service-info__item--wide
-      span.service-info__name = service.name
-    .service-info__item--narrow
-      span.service-info__plan = t "activerecord.enums.service.plan.#{service.plan}"
-    .service-info__item--narrow
-      span.service-info__price = service.price
-    .service-info__item
-      span.service-info__renewed_on = service.renewed_on
-    .service-info__item
-      span.service-info__notified_on = service.notified_on
-    .service-info__item--narrow--center
-      label.service-info__expand(for="service-#{service.id}")
-  .service-info--expandable
-    .service-info__memo
-      span.service-info__memo = service.description
-    .service-info__actions
-      .service-info__action
+.list
+  input.list__expand-toggle id="service-#{service.id}" type="checkbox"
+  .list--display
+    .list__item.list__item--name.col-lg
+      = service.name
+    .list__item.col-sm
+      = t "activerecord.enums.service.plan.#{service.plan}"
+    .list__item.col-sm
+      = service.price
+    .list__item
+      = service.renewed_on
+    .list__item
+      = service.notified_on
+    .list__item.list__item--button.col-sm
+      label.list__expand(for="service-#{service.id}")
+  .list--expandable
+    .list__item.list__item--memo
+      = service.description
+    .list__actions
+      .list__action
         = link_to "修正", edit_service_path(service), class: "btn--full btn--sm btn--secondary"
-      .service-info__action
+      .list__action
         = link_to "削除", service_path(service), method: :delete, data: { confirm: "本当によろしいですか?" }, class: "btn--full btn--sm btn--danger"
