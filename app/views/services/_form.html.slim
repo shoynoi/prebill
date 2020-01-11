@@ -1,5 +1,5 @@
 = render "error", object: service
-= form_with model: service do |f|
+= form_with model: service, local: true do |f|
   .form__items
     .form-item
       = f.label :name, class: "form-item__label"
