@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require "application_system_test_case"
 
 class ServicesTest < ApplicationSystemTestCase
-
   test "create a new service" do
     visit new_service_path
     fill_in "service_name", with: "テストサービス"
