@@ -1,9 +1,9 @@
 - if notice
-  .flash
+  .flash.flash--notice
     p.flash__message
       = notice
 
 - if alert
-  .flash
+  .flash.flash--alert
     p.flash__message
-      | alert
+      = alert
