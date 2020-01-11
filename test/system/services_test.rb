@@ -11,7 +11,7 @@ class ServicesTest < ApplicationSystemTestCase
     fill_in "service_renewed_on", with: "2019/12/31"
     fill_in "service_notified_on", with: "2019/12/20"
     assert_difference "Service.count", 1 do
-      click_button "登録"
+      click_on "登録"
       assert_text "サービスを登録しました。"
     end
   end
@@ -24,13 +24,14 @@ class ServicesTest < ApplicationSystemTestCase
     fill_in "service_price", with: 1800
     fill_in "service_renewed_on", with: "2020/1/10"
     fill_in "service_notified_on", with: "2020/01/05"
-    click_button "登録"
+    click_on "修正"
     assert_text "サービスを修正しました。"
   end
 
   test "destroy a service" do
     visit root_path
-    within ".service:first-child" do
+    within ".list:first-child" do
+      find(".list__expand").click
       accept_confirm do
         click_link "削除"
       end
