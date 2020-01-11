@@ -1,32 +1,26 @@
-.service-list__labels {
+.list__labels {
   display: flex;
-  justify-content: space-between;
   padding: 0 1.5rem;
 }
 
-.service-list__label {
+.list__label {
   flex: 1 1 14%;
   font-size: .8rem;
   color: #666666;
   padding: 0 5px;
 }
 
-.service-list__label--wide {
-  @extend .service-list__label;
+.list__label--wide {
+  @extend .list__label;
   flex: 1 1 28%;
 }
 
-.service-list__label--narrow {
-  @extend .service-list__label;
+.list__label--narrow {
+  @extend .list__label;
   flex: 1 1 7%;
 }
 
-.service-list__label--narrow--center {
-  @extend .service-list__label--narrow;
-  text-align: center;
-}
-
-.service-list__inner {
+.list__inner {
   margin-top: 1rem;
 }
 

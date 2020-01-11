@@ -8,18 +8,18 @@ header.page-header
 .page-body
   h3.page-body__title 利用中のサービス
   .page-body__inner
-    .service-list
-      .service-list__labels
-        .service-list__label--wide
+    .list
+      .list__labels
+        .list__label--wide
           = Service.human_attribute_name(:name)
-        .service-list__label--narrow
+        .list__label--narrow
           = Service.human_attribute_name(:plan)
-        .service-list__label--narrow
+        .list__label--narrow
           = Service.human_attribute_name(:price)
-        .service-list__label
+        .list__label
           = Service.human_attribute_name(:renewed_on)
-        .service-list__label
+        .list__label
           = Service.human_attribute_name(:notified_on)
-        .service-list__label--narrow--center
-      .service-list__inner
+        .list__label--narrow
+      .list__inner
         = render partial: "services/service", collection: @services, as: :service
