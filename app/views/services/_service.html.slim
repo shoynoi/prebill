@@ -15,7 +15,7 @@
       label.list__expand(for="service-#{service.id}")
   .list--expandable
     .list__item.list__item--memo
-      = service.description
+      = auto_link(simple_format(h(service.description), sanitize: true), html: { target: "_blank" })
     .list__actions
       .list__action
         = link_to "修正", edit_service_path(service), class: "btn--full btn--sm btn--secondary"
