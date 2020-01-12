@@ -1,0 +1,20 @@
+= render "error", object: user
+= form_with model: user, local: true do |f|
+  .form__items--block
+    .form-item--block
+      = f.label :name, class: "form-item__label--block"
+      = f.text_field :name, class: "form-item__text-input--block", placeholder: "ユーザー名"
+    .form-item--block
+      = f.label :email, class: "form-item__label--block"
+      = f.email_field :email, class: "form-item__text-input--block", placeholder: "Eメール"
+    .form-item--block
+      = f.label :password, class: "form-item__label--block"
+      = f.password_field :password, class: "form-item__text-input--block", placeholder: "パスワード"
+    .form-item--block
+      = f.label :password_confirmation, class: "form-item__label--block"
+      = f.password_field :password_confirmation, class: "form-item__text-input--block", placeholder: "パスワード(確認)"
+
+  .form-actions
+    ul.form-actions__items
+      li.form-actions__item
+        = f.submit "ユーザー登録", class: "btn--full btn--primary btn--lg"

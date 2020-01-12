@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       service: サービス
+      user: ユーザー
     attributes:
       service:
         name: サービス名
@@ -12,6 +13,11 @@ ja:
         description: メモ
         created_at: 作成日時
         updated_at: 更新日時
+      user:
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認)
     enums:
       service:
         plan:

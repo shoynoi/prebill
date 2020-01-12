@@ -1,2 +1,12 @@
-h1 Users#new
-p Find me in app/views/users/new.html.slim
+.auth-form
+  header.auth-form__header
+    h1.auth-form__title ユーザー登録
+  .auth-form__body
+    = render "form", user: @user
+  footer.auth-form__footer
+    nav.auth-form-nav
+      ul.auth-form-nav__items
+        li.auth-form-nav__item
+          = link_to "トップページ", root_path, class: "auth-form-nav__link"
+        li.auth-form-nav__item
+          = link_to "ログイン", "#", class: "auth-form-nav__link"
