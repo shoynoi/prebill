@@ -1,0 +1,27 @@
+spotify:
+  name: Spotify
+  description: |
+    https://www.spotify.com/jp/
+    解約予定
+  plan: 0
+  price: 980
+  renewed_on: <%= Time.current + 1.month %>
+  notified_on: <%= Time.current + 1.week %>
+
+amazonprime:
+  name: Amazon Prime
+  description:
+  plan: 1
+  price: 4800
+  renewed_on: <%= Time.current + 3.month %>
+  notified_on: <%= Time.current + 1.month %>
+
+<% 5.times do |n| %>
+service_<%= n %>:
+  name: Service_<%= n %>
+  description: memo...
+  plan: 0
+  price: 500
+  renewed_on: 2019-01-10
+  notified_on: 2019-01-05
+<% end %>

@@ -1,0 +1,86 @@
+.list {
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 1.7rem;
+  padding: .85rem 1.5rem;
+}
+
+.list--display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list--expandable {
+  display: none;
+  input:checked ~ & {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.list__item {
+  flex: 1 1 15%;
+  padding: 0 5px;
+  font-size: 14.5px;
+  &--name {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  &--button {
+    text-align: center;
+  }
+  &.col-lg {
+    flex: 1 1 25%;
+  }
+  &.col-sm {
+    flex: 1 1 10%;
+  }
+}
+
+.list__expand-toggle {
+  display: none;
+}
+
+.list__expand {
+  display: inline-block;
+  width: 27px;
+  height: 27px;
+  background-color: #DDE5F0;
+  border-radius: 50%;
+  transition: all ease .2s;
+  &:hover {
+    background-color: #2274E5;
+    color: white;
+  }
+  input:checked + div & {
+    background-color: #2274E5;
+    color: white;
+  }
+}
+
+.list__expand::before {
+  display: inline-block;
+  content: "⌵";
+  position: relative;
+  z-index: 1;
+  input:checked + div & {
+    transform: rotateX(180deg);
+    top: 2px;
+  }
+}
+
+.list__item--memo {
+  padding: 1rem 5px;
+  font-size: .895rem;
+}
+
+.list__actions {
+  margin-left: auto;
+  display: flex;
+}
+
+.list__action:not(:last-child) {
+  padding-right: 1rem;
+}

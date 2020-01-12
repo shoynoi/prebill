@@ -18,6 +18,9 @@ gem "jbuilder", "~> 2.7"
 # gem 'bcrypt', '~> 3.1.7'
 gem "slim-rails"
 gem "html2slim"
+gem "rails-i18n", "~> 6.0.0"
+gem "font-awesome-sass", "~> 5.12.0"
+gem "rails_autolink"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
