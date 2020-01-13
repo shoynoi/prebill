@@ -10,6 +10,8 @@
     .form-item--block
       = f.label :password, class: "form-item__label--block"
       = f.password_field :password, class: "form-item__text-input--block", placeholder: "パスワード"
+      p.form-item__help
+        | 6文字以上
     .form-item--block
       = f.label :password_confirmation, class: "form-item__label--block"
       = f.password_field :password_confirmation, class: "form-item__text-input--block", placeholder: "パスワード(確認)"
