@@ -10,6 +10,8 @@
 .header__title--link {
   color: #fafafa;
   text-decoration: none;
+  padding: 2px 7px;
+  transition: all ease-out .08s;
   &:hover {
     color: white;
     background-color: rgba(255,255,255,0.2);
@@ -32,9 +34,10 @@
   display: flex;
   align-items: center;
   position: relative;
+  padding-left: 1rem;
 }
 
-.header-nav__item--link {
+.header-nav__item--label {
   display: flex;
   align-items: center;
   height: 100%;
@@ -43,10 +46,38 @@
   cursor: pointer;
 }
 
-.header-nav__item--label {
+.header-nav__item--link {
   font-weight: bold;
   padding: 2px 7px;
-   color: #fafafa;
+  font-size: .9rem;
+  color: #fafafa;
+  transition: all ease-out .08s;
+  &:hover {
+    color: white;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 4px;
+  }
+}
+
+.header-nav__item--button {
+  font-weight: bold;
+  padding: 2px 7px;
+  font-size: .9rem;
+  color: #fafafa;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  transition: all ease-out .08s;
+  &:hover {
+    color: white;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 4px;
+  }
+}
+
+.header-nav__item--dropdown {
+  font-weight: bold;
+  padding: 2px 7px;
+  color: #fafafa;
   &::after {
     font-weight: 900;
     content: "\f0d7";

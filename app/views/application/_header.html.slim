@@ -6,8 +6,8 @@ header.header
       - if current_user
         .header-nav__items
           .header-nav__item
-            label.header-nav__item--link(for="header-user-menu")
-              .header-nav__item--label
+            label.header-nav__item--label(for="header-user-menu")
+              .header-nav__item--dropdown
                 = current_user.name
             input.header-nav__item--input#header-user-menu(type="checkbox")
             .header-dropdown
@@ -21,6 +21,6 @@ header.header
       - else
         .header-nav__items
           .header-nav__item
-            = link_to "ログイン", login_path
+            = link_to "ユーザー登録", new_user_path, class: "header-nav__item--button"
           .header-nav__item
-            = link_to "アカウント作成", new_user_path
+            = link_to "ログイン", login_path, class: "header-nav__item--link"
