@@ -3,7 +3,7 @@ header.header
     h1.header__title
       = link_to "PreBill", root_path, class: "header__title--link"
     nav.header-nav
-      - if current_user
+      - if logged_in?
         .header-nav__items
           .header-nav__item
             label.header-nav__item--label(for="header-user-menu")
