@@ -1,0 +1,8 @@
+main.page
+  header.page-header
+    h2.page-header__title ユーザー設定
+
+  .page-body
+    .auth-form--is-update
+      .auth-form__body
+        = render "form", user: @user
