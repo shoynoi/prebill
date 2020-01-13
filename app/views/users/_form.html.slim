@@ -1,5 +1,5 @@
 = render "error", object: user
-= form_with model: user, local: true do |f|
+= form_with url: signup_path, model: user, local: true do |f|
   .form__items--block
     .form-item--block
       = f.label :name, class: "form-item__label--block"

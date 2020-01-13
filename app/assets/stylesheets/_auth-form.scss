@@ -1,16 +1,34 @@
 .auth-form {
-  width: 30rem;
-  margin: 4rem auto 2rem;
+  max-width: 30rem;
+  margin: 2rem auto;
   border: 1px solid #ddd;
   background-color: white;
   padding: 2rem 1.875rem 0;
   box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.06);
 }
 
+.auth-form-logo {
+  font-family: "American Typewriter";
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 2.5rem;
+}
+
+.auth-form-logo__link {
+  color: #2E5173;
+}
+
+.auth-form__header {
+  margin-bottom: 1rem;
+}
+
 .auth-form__title {
   text-align: center;
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+}
+
+.auth-form__body {
+  margin: 1.5rem 0;
 }
 
 .auth-form__footer {

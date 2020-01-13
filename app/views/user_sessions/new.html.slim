@@ -1,6 +1,9 @@
+h1.auth-form-logo
+  = link_to "PreBill", root_path, class: "auth-form-logo__link"
 .auth-form
   header.auth-form__header
     h1.auth-form__title ログイン
+  = render "flash"
   .auth-form__body
     = render "form", user: @user
   footer.auth-form__footer
@@ -9,4 +12,4 @@
         li.auth-form-nav__item
           = link_to "トップページ", root_path, class: "auth-form-nav__link"
         li.auth-form-nav__item
-          = link_to "ユーザー登録", new_user_path, class: "auth-form-nav__link"
+          = link_to "ユーザー登録", signup_path, class: "auth-form-nav__link"
