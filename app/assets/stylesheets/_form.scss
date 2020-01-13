@@ -20,6 +20,9 @@
 
 .form-item--block {
   margin-bottom: 1.5rem;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 .form-item__label {
@@ -102,6 +105,14 @@
   height: 6rem;
   resize: vertical;
   flex: 1 1 auto;
+}
+
+.form-item__remember-me {
+  font-size: .85rem;
+}
+
+.form-item__checkbox {
+  margin-right: .3rem;
 }
 
 .form-actions__items {

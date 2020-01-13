@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    @user = login(params[:user][:email], params[:user][:password])
+    @user = login(params[:user][:email], params[:user][:password], params[:remember])
 
     if @user
       redirect_back_or_to root_path, notice: "ログインしました。"

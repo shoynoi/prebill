@@ -6,6 +6,9 @@
     .form-item--block
       = f.label :password, class: "form-item__label--block"
       = f.password_field :password, class: "form-item__text-input--block", placeholder: "パスワード"
+    label.form-item__remember-me
+      = check_box_tag :remember, params[:remember], true, class: "form-item__checkbox"
+      | 次回から自動でログイン
 
   .form-actions
     ul.form-actions__items
