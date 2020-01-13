@@ -15,7 +15,7 @@ header.header
               .header-dropdown__inner
                 ul.header-dropdown__items
                   li.header-dropdown__item
-                    = link_to "ユーザー設定", "https://google.com", class: "header-dropdown__item-link"
+                    = link_to "ユーザー設定", edit_my_account_path, class: "header-dropdown__item-link"
                   li.header-dropdown__item
                     = link_to "ログアウト", logout_path, method: :delete, class: "header-dropdown__item-link"
       - else
