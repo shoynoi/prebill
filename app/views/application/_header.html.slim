@@ -3,16 +3,24 @@ header.header
     h1.header__title
       = link_to "PreBill", root_path, class: "header__title--link"
     nav.header-nav
-      .header-nav__items
-        .header-nav__item
-          label.header-nav__item--link(for="header-user-menu")
-            .header-nav__item--label shoynoi
-          input.header-nav__item--input#header-user-menu(type="checkbox")
-          .header-dropdown
-            label.header-dropdown__background(for="header-user-menu")
-            .header-dropdown__inner
-              ul.header-dropdown__items
-                li.header-dropdown__item
-                  = link_to "ユーザー設定", "https://google.com", class: "header-dropdown__item-link"
-                li.header-dropdown__item
-                  = link_to "ログアウト", "#", class: "header-dropdown__item-link"
+      - if current_user
+        .header-nav__items
+          .header-nav__item
+            label.header-nav__item--link(for="header-user-menu")
+              .header-nav__item--label
+                = current_user.name
+            input.header-nav__item--input#header-user-menu(type="checkbox")
+            .header-dropdown
+              label.header-dropdown__background(for="header-user-menu")
+              .header-dropdown__inner
+                ul.header-dropdown__items
+                  li.header-dropdown__item
+                    = link_to "ユーザー設定", "https://google.com", class: "header-dropdown__item-link"
+                  li.header-dropdown__item
+                    = link_to "ログアウト", logout_path, method: :delete, class: "header-dropdown__item-link"
+      - else
+        .header-nav__items
+          .header-nav__item
+            = link_to "ログイン", login_path
+          .header-nav__item
+            = link_to "アカウント作成", new_user_path

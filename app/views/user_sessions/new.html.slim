@@ -1,0 +1,12 @@
+.auth-form
+  header.auth-form__header
+    h1.auth-form__title ログイン
+  .auth-form__body
+    = render "form"
+  footer.auth-form__footer
+    nav.auth-form-nav
+      ul.auth-form-nav__items
+        li.auth-form-nav__item
+          = link_to "トップページ", root_path, class: "auth-form-nav__link"
+        li.auth-form-nav__item
+          = link_to "ユーザー登録", new_user_path, class: "auth-form-nav__link"
