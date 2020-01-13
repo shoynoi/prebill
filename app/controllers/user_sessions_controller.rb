@@ -1,11 +1,17 @@
 class UserSessionsController < ApplicationController
+
+  def new
+    @user = User.new
+  end
+
   def create
     @user = login(params[:email], params[:password])
 
     if @user
       redirect_back_or_to root_path, notice: "ログインしました。"
     else
-      flash.now[:alert] = "ユーザー名かパスワードが正しくありません。"
+      @user = User.new(email: params[:user][:email], password: params[:user][:password])
+      flash.now[:alert] = "メールアドレスかパスワードが正しくありません。"
       render :new
     end
   end
