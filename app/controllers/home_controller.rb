@@ -4,6 +4,10 @@ class HomeController < ApplicationController
   skip_before_action :require_login
 
   def index
-    @services = Service.all
+    if current_user
+      @services = Service.all
+    else
+      render "welcome/index", layout: "welcome"
+    end
   end
 end
