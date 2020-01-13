@@ -2,7 +2,7 @@
   .form__items--block
     .form-item--block
       = f.label :email, class: "form-item__label--block"
-      = f.email_field :email, class: "form-item__text-input--block", placeholder: "Eメール"
+      = f.email_field :email, class: "form-item__text-input--block", placeholder: "Eメール", autofocus: true
     .form-item--block
       = f.label :password, class: "form-item__label--block"
       = f.password_field :password, class: "form-item__text-input--block", placeholder: "パスワード"

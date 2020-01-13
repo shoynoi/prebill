@@ -3,7 +3,7 @@
   .form__items--block
     .form-item--block
       = f.label :name, class: "form-item__label--block"
-      = f.text_field :name, class: "form-item__text-input--block", placeholder: "ユーザー名"
+      = f.text_field :name, class: "form-item__text-input--block", placeholder: "ユーザー名", autofocus: true
     .form-item--block
       = f.label :email, class: "form-item__label--block"
       = f.email_field :email, class: "form-item__text-input--block", placeholder: "Eメール"
