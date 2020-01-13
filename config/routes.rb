@@ -3,7 +3,9 @@
 Rails.application.routes.draw do
   root to: "home#index"
   resources :services, only: %i(new create edit update destroy)
-  resource :my_account, only: %i(edit update destroy), controller: "my_account"
+  resource :my_account, only: %i(edit update destroy), controller: "my_account" do
+    get "close" => "my_account#close"
+  end
 
   get "signup" => "users#new"
   post "signup" => "users#create"

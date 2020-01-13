@@ -16,6 +16,9 @@ class MyAccountController < ApplicationController
     redirect_to root_path, notice: "退会が完了しました。"
   end
 
+  def close
+  end
+
   private
     def set_user
       @user = current_user
