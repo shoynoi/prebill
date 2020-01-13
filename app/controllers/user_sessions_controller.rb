@@ -1,5 +1,6 @@
 class UserSessionsController < ApplicationController
   layout "welcome"
+  skip_before_action :require_login, except: :destroy
 
   def new
     @user = User.new

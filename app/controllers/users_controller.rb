@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   layout "welcome"
+  skip_before_action :require_login
 
   def new
     @user = User.new
