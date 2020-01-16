@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module LoginHelper
   def login_user(email, password)
     visit "/login"

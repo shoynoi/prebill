@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserSessionsController < ApplicationController
   layout "welcome"
   skip_before_action :require_login, except: :destroy

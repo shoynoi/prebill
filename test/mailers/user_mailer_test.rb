@@ -1,4 +1,6 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 
 class UserMailerTest < ActionMailer::TestCase
   test "reset_password_email" do
@@ -8,5 +10,4 @@ class UserMailerTest < ActionMailer::TestCase
     assert_equal ["from@example.com"], mail.from
     assert_match "Hi", mail.body.encoded
   end
-
 end

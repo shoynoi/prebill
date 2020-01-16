@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MyAccountController < ApplicationController
   before_action :set_user
   def edit
