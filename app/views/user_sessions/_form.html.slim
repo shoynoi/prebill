@@ -2,10 +2,12 @@
   .form__items--block
     .form-item--block
       = f.label :email, class: "form-item__label--block"
-      = f.email_field :email, class: "form-item__text-input--block", placeholder: "Eメール", autofocus: true
+      = f.email_field :email, class: "form-item__text-input--block", placeholder: "Eメール", autofocus: true, tabindex: 1
     .form-item--block
-      = f.label :password, class: "form-item__label--block"
-      = f.password_field :password, class: "form-item__text-input--block", placeholder: "パスワード"
+      .form-item__inner
+        = f.label :password, class: "form-item__label--block"
+        = link_to "パスワードを忘れた?", new_password_reset_path, class: "form-item__link"
+      = f.password_field :password, class: "form-item__text-input--block", placeholder: "パスワード", tabindex: 2
     label.form-item__remember-me
       = check_box_tag :remember, params[:remember], true, class: "form-item__checkbox"
       | 次回から自動でログイン
@@ -13,4 +15,4 @@
   .form-actions
     ul.form-actions__items
       li.form-actions__item
-        = f.submit "ログイン", class: "btn--full btn--primary btn--lg"
+        = f.submit "ログイン", class: "btn--full btn--primary btn--lg", tabindex: 3

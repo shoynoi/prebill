@@ -1,0 +1,17 @@
+.auth-form
+  header.auth-form__header
+    h1.auth-form__title パスワード再設定
+  .auth-form__body
+    = form_with model: @user, url: password_reset_path(@token), local: true, method: :put do |f|
+      = render "error", object: @user
+      .form__items--block
+        .form-item--block
+          = f.label :password, class: "form-item__label--block"
+          = f.password_field :password, class: "form-item__text-input--block", placeholder: "新しいパスワード", autofocus: true
+        .form-item--block
+          = f.label :password_confirmation, class: "form-item__label--block"
+          = f.password_field :password_confirmation, class: "form-item__text-input--block", placeholder: "新しいパスワード(確認)"
+      .form-actions
+        ul.form-actions__items
+          li.form-actions__item
+            = f.submit "パスワード変更", class: "btn--full btn--primary btn--lg"

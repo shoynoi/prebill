@@ -1,0 +1,13 @@
+.auth-form
+  header.auth-form__header
+    h1.auth-form__title パスワードを忘れた
+  .auth-form__body
+    = form_with url: password_resets_path, local: true, method: :post do |f|
+      .form__items--block
+        .form-item--block
+          = f.label :email, class: "form-item__label--block"
+          = f.email_field :email, class: "form-item__text-input--block", autofocus: true
+      .form-actions
+        ul.form-actions__items
+          li.form-actions__item
+            = f.submit "パスワード再設定メールを送信", class: "btn btn--primary btn--lg"
