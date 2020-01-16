@@ -1,0 +1,41 @@
+.close-account {
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.close-account__header {
+  margin-bottom: 1rem;
+}
+
+.close-account__title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.close-account__body {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-account__text {
+  padding: 1rem;
+}
+
+.close-account-nav__items {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.close-account-nav__item {
+  padding: 0 .5rem;
+  width: 12rem;
+}
+
+.close-account-nav__item--cancel {
+  padding: 0 .5rem;
+}

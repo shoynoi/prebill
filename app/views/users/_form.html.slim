@@ -1,0 +1,26 @@
+= render "error", object: user
+= form_with model: user, url: url, local: true do |f|
+  .form__items--block
+    .form-item--block
+      = f.label :name, class: "form-item__label--block"
+      = f.text_field :name, class: "form-item__text-input--block", placeholder: "ユーザー名", autofocus: true
+    .form-item--block
+      = f.label :email, class: "form-item__label--block"
+      = f.email_field :email, class: "form-item__text-input--block", placeholder: "Eメール"
+    .form-item--block
+      = f.label :password, class: "form-item__label--block"
+      = f.password_field :password, class: "form-item__text-input--block", placeholder: "パスワード"
+      p.form-item__help
+        | 6文字以上
+    .form-item--block
+      = f.label :password_confirmation, class: "form-item__label--block"
+      = f.password_field :password_confirmation, class: "form-item__text-input--block", placeholder: "パスワード(確認)"
+
+  .form-actions
+    ul.form-actions__items
+      - if user.new_record?
+        li.form-actions__item
+          = f.submit "ユーザー登録", class: "btn--full btn--primary btn--lg"
+      - else
+        li.form-actions__item
+          = f.submit "更新する", class: "btn--full btn--primary btn--lg"

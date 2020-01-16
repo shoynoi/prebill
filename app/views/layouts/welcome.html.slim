@@ -9,7 +9,9 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     meta name="viewport" content="width=device-width, initial-scale=1.0"
   body
-    = render "header"
+    - unless request.path == signup_path || request.path == login_path
+      = render "header"
     .container
+    - unless request.path == login_path
       = render "flash"
-      = yield
+    = yield

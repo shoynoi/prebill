@@ -1,0 +1,16 @@
+main.page
+  .page-body
+    .close-account
+      header.close-account__header
+        h1.close-account__title 退会する
+      .close-account__body
+        p.close-account__text
+          | 退会処理を行うと、すべてのデータが削除されます。
+          br
+          strong この処理は取り消せません。
+        nav.close-account-nav
+          ul.close-account-nav__items
+            li.close-account-nav__item
+              = link_to "退会する", my_account_path, method: :delete, data: { confirm: "アカウントを削除します。本当によろしいですか?" }, class: "btn--full btn--danger btn--lg"
+            li.close-account-nav__item--cancel
+              = link_to "キャンセル", root_path, class: "btn btn--secondary btn--md"

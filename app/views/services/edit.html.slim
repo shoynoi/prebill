@@ -1,8 +1,9 @@
-header.page-header
-  h2.page-header__title サービス修正
-  .page-header__actions
-    = link_to root_path, class: "btn--full btn--md btn--secondary" do
-      | 一覧
+main.page
+  header.page-header
+    h2.page-header__title サービス修正
+    .page-header__actions
+      = link_to root_path, class: "btn--full btn--md btn--secondary" do
+        | 一覧
 
-.page-body
-  = render "form", service: @service
+  .page-body
+    = render "form", service: @service
