@@ -10,7 +10,8 @@ class PasswordResetsController < ApplicationController
       @user.deliver_reset_password_instructions!
       redirect_to login_path, notice: "パスワード再設定用のメールを送信しました。"
     else
-      redirect_to login_path, alert: "メールアドレスが正しくありません。"
+      flash.now[:alert] = "メールアドレスが正しくありません。"
+      render :new
     end
   end
 
