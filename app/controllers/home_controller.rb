@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def index
     if logged_in?
-      @services = Service.all
+      @services = current_user.services.all
     else
       render "welcome/index", layout: "welcome"
     end

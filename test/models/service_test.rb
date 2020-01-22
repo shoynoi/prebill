@@ -31,4 +31,12 @@ class ServiceTest < ActiveSupport::TestCase
     service.price = ""
     assert service.valid?
   end
+
+  test "when destroy a user, destroy services associated with a user" do
+    user = User.create!(name: "johndoe", email: "test@example.com", password: "secret", password_confirmation: "secret")
+    user.services.create!(name: "test service")
+    assert_difference "user.services.count", -1 do
+      user.destroy
+    end
+  end
 end
