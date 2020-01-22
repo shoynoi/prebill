@@ -8,6 +8,12 @@
   max-width: -webkit-fit-content;
 }
 
+.form-item__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .form-item {
   margin-bottom: 1.5rem;
   display: flex;
@@ -16,6 +22,10 @@
 .form-item__help {
   margin-top: .2rem;
   font-size: .75rem;
+}
+
+.form-item__link {
+  font-size: 0.8rem;
 }
 
 .form-item--block {
@@ -125,7 +135,7 @@
 
 .form-actions__item {
   padding: 0 .5rem;
-  width: 12rem;
+  min-width: 12rem;
 }
 
 .form-actions__item--cancel {

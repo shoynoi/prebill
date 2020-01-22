@@ -3,6 +3,10 @@
 require "application_system_test_case"
 
 class ServicesTest < ApplicationSystemTestCase
+  def setup
+    login_user "shoynoi.jp@gmail.com", "secret"
+  end
+
   test "create a new service" do
     visit new_service_path
     fill_in "service_name", with: "テストサービス"
