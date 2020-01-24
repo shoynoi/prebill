@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/shoynoi/prebill/tree/master.svg?style=svg)](https://circleci.com/gh/shoynoi/prebill/tree/master)
+
 # PreBill
 
 ## エレベーターピッチ
