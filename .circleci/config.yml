@@ -1,75 +1,105 @@
 version: 2.1
-jobs:
-  build:
-    parallelism: 3
+
+executors:
+  default:
+    docker:
+      - image: circleci/ruby:2.6.5
+        environment:
+          TZ: "Asia/Tokyo"
+  extend:
     docker:
       - image: circleci/ruby:2.6.5-node-browsers
         environment:
-          BUNDLE_JOBS: 3
-          BUNDLE_RETRY: 3
-          BUNDLE_PATH: vendor/bundle
           PGHOST: 127.0.0.1
           PGUSER: user
           RAILS_ENV: test
+          TZ: "Asia/Tokyo"
       - image: circleci/postgres:11.3-alpine
         environment:
           POSTGRES_USER: user
-          POSTGRES_DB: user_test
+          POSTGRES_DB: prebill_test
           POSTGRES_PASSWORD: ""
+          TZ: "Asia/Tokyo"
+
+commands:
+  restore_gems:
     steps:
-      - checkout
-
-      - run:
-          name: Which bundler?
-          command: bundle -v
-
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
-
-      - run:
-          name: Bundle Install
-          command: bundle check --path vendor/bundle || bundle install --deployment
-
-      - save_cache:
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
-
+  restore_yarn:
+    steps:
       - restore_cache:
           keys:
             - rails-yarn-{{ checksum "yarn.lock" }}
             - rails-yarn-
-
+  install_gems:
+    steps:
+      - run: gem install bundler
+      - run:
+          name: Bundle Install
+          command: bundle check --path vendor/bundle || bundle install --clean --force --jobs=4 --retry=3
+  install_yarn:
+    steps:
       - run:
           name: Yarn Install
           command: yarn install --cache-folder ~/.cache/yarn
-
+  save_gems:
+    steps:
+      - save_cache:
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+  save_yarn:
+    steps:
       - save_cache:
           key: rails-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
 
+jobs:
+  rubocop:
+    executor: default
+    steps:
+      - checkout
+      - restore_gems
+      - install_gems
+      - save_gems
+      - run:
+          name: Run rubocop
+          command: |
+            bundle exec rubocop -c .rubocop.yml
+  minitest:
+    executor: extend
+    steps:
+      - checkout
+      - restore_gems
+      - restore_yarn
+      - install_gems
+      - install_yarn
+      - save_gems
+      - save_yarn
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
-
       - run:
           name: Database setup
           command: bin/rails db:schema:load --trace
-
       - run:
-          name: rubocop
-          command: |
-            bundle exec rubocop -c .rubocop.yml
-
-      - run:
-          name: Run minitest in parallel
+          name: Run minitest
           command: |
             ./bin/test
+      - store_test_results:
+          path: tmp/test-results
 
-      # Save test results for timing analysis
-      - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: test_results
-      # See https://circleci.com/docs/2.0/deployment-integrations/ for example deploy configs
+      - store_artifacts:
+          path: tmp/screenshots
+          destination: screenshots
+
+workflows:
+  version: 2.1
+  rubocop-and-minitest:
+    jobs:
+      - rubocop
+      - minitest
