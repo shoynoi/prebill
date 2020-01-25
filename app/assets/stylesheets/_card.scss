@@ -1,0 +1,36 @@
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 2rem
+}
+
+.card {
+  min-width: 10rem;
+  border-radius: 3px;
+  &--yellow {
+    background-color: #f6932b;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+  &--green {
+    background-color: #35AB45;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.card__body {
+  padding: .5rem;
+}
+
+.card__amount {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.card__title {
+  color: white;
+  font-size: .75rem;
+  text-align: center;
+  user-select: none;
+}

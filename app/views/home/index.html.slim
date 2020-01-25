@@ -6,6 +6,20 @@ main.page
         i.fas.fa-plus-circle
         | 新規登録
 
+  .card-container
+    .card.card--yellow
+      .card__body
+        .card__title
+          | 月平均利用額
+        .card__amount
+          = number_to_currency(@services.monthly_average_amount)
+    .card.card--green
+      .card__body
+        .card__title
+          | 年間合計額
+        .card__amount
+          = number_to_currency(@services.annual_total_amount)
+
   .page-body
     h3.page-body__title 利用中のサービス
     .page-body__inner

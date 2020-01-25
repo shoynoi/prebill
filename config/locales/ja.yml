@@ -1,4 +1,9 @@
 ja:
+  number:
+    currency:
+      format:
+        unit: "¥"
+        format: "%u%n"
   activerecord:
     models:
       service: サービス

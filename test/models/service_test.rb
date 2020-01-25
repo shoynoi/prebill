@@ -39,4 +39,20 @@ class ServiceTest < ActiveSupport::TestCase
       user.destroy
     end
   end
+
+  test "annual_total_amount" do
+    Service.delete_all
+    user = users(:shoynoi)
+    Service.create(name: "Spotify", plan: "monthly", price: 980, user: user)
+    Service.create(name: "Rubymine", plan: "yearly", price: 8000, user: user)
+    assert_equal 19760, user.services.annual_total_amount
+  end
+
+  test "monthly_average_amount" do
+    Service.delete_all
+    user = users(:shoynoi)
+    Service.create(name: "Spotify", plan: "monthly", price: 980, user: user)
+    Service.create(name: "Rubymine", plan: "yearly", price: 8000, user: user)
+    assert_equal 1646, user.services.monthly_average_amount
+  end
 end
