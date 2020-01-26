@@ -1,4 +1,8 @@
 ja:
+  date:
+    formats:
+      default: "%Y年%m月%d日"
+      short: "%-m月%-d日"
   number:
     currency:
       format:

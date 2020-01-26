@@ -6,11 +6,13 @@
     .list__item.col-sm
       = t "activerecord.enums.service.plan.#{service.plan}"
     .list__item.col-sm
-      = service.price
+      = number_to_currency(service.price)
     .list__item
-      = service.renewed_on
+      - if service.renewed_on
+        = service.formatted_renewed_on
     .list__item
-      = service.notified_on
+      - if service.notified_on
+        = service.formatted_notified_on
     .list__item.list__item--button.col-sm
       label.list__expand(for="service-#{service.id}")
   .list--expandable
