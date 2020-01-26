@@ -9,6 +9,8 @@ class Service < ApplicationRecord
   validates :plan, presence: true
   validates :price, numericality: { only_integer: true, allow_blank: true }
 
+  scope :expired, -> { where("renewed_on < ?", Date.today) }
+
   def self.annual_total_amount
     total_amount("yearly") + (total_amount("monthly") * 12)
   end
