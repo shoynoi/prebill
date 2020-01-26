@@ -28,6 +28,16 @@ rubymine:
   notified_on: 2020-12-31
   user: shoynoi
 
+expired:
+  name: Renewed Service
+  description: |
+    更新日を迎えたサービス
+  plan: 0
+  price: 1000
+  renewed_on: 2018-10-10
+  user: inactive
+
+
 <% 5.times do |n| %>
 service_<%= n %>:
   name: Service_<%= n %>
