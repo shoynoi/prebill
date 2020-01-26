@@ -6,7 +6,7 @@
     .list__item.col-sm
       = t "activerecord.enums.service.plan.#{service.plan}"
     .list__item.col-sm
-      = service.price
+      = number_to_currency(service.price)
     .list__item
       - if service.renewed_on
         = service.formatted_renewed_on
