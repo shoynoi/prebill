@@ -1,0 +1,16 @@
+こんにちは、<%= @user.name %>さん。
+本日更新日を迎えたサービスをお知らせいたします。
+以下の内容をご確認ください。
+
+  ======================================
+<% @services.each do |service| %>
+  サービス名: <%= service.name %>
+  プラン: <%= t "activerecord.enums.service.plan.#{service.plan}"%>
+  料金: <%= number_to_currency(service.price) %>
+  次回の更新日: <%= l service.renewed_on %>
+  ======================================
+<% end %>
+
+
+PreBill: https://example.com
+メール配信を停止: https://example.com
