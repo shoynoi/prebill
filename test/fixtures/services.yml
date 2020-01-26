@@ -18,6 +18,16 @@ amazonprime:
   notified_on: <%= Time.current + 1.month %>
   user: akira
 
+rubymine:
+  name: Rubymine
+  description: |
+    Visual Studio Codeに移行検討中。
+  plan: 1
+  price: 8000
+  renewed_on: 2021-01-26
+  notified_on: 2020-12-31
+  user: shoynoi
+
 <% 5.times do |n| %>
 service_<%= n %>:
   name: Service_<%= n %>
