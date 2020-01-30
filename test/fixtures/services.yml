@@ -24,17 +24,22 @@ rubymine:
     Visual Studio Codeに移行検討中。
   plan: 1
   price: 8000
-  renewed_on: 2021-01-26
+  renewed_on: 2021-01-25
   notified_on: 2020-12-31
   user: shoynoi
 
-<% 5.times do |n| %>
-service_<%= n %>:
-  name: Service_<%= n %>
-  description: memo...
+renewal:
+  name: Renewed Service
+  description: |
+    今日が更新日であるサービス
   plan: 0
-  price: 500
-  renewed_on: 2019-01-10
-  notified_on: 2019-01-05
+  price: 1000
+  renewed_on: <%= Date.today %>
   user: shoynoi
-<% end %>
+
+other_renewal:
+  name: Other Renewed Service
+  plan: 1
+  price: 2000
+  renewed_on: <%= Date.today %>
+  user: akira

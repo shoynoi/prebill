@@ -9,12 +9,23 @@ class Service < ApplicationRecord
   validates :plan, presence: true
   validates :price, numericality: { only_integer: true, allow_blank: true }
 
+  scope :renewal, -> { where(renewed_on: Date.today) }
+
   def self.annual_total_amount
     total_amount("yearly") + (total_amount("monthly") * 12)
   end
 
   def self.monthly_average_amount
     annual_total_amount / 12
+  end
+
+  def renew!
+    case plan
+    when "yearly"
+      update!(renewed_on: renewed_on.next_year)
+    when "monthly"
+      update!(renewed_on: renewed_on.next_month)
+    end
   end
 
   private
