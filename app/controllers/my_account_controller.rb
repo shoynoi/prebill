@@ -32,6 +32,7 @@ class MyAccountController < ApplicationController
         :email,
         :password,
         :password_confirmation,
+        :mail_notification,
         )
     end
 end

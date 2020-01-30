@@ -7,6 +7,11 @@
     .form-item--block
       = f.label :email, class: "form-item__label--block"
       = f.email_field :email, class: "form-item__text-input--block", placeholder: "Eメール"
+    - if form == :edit
+      .form-item--block
+        = f.label :mail_notification, class: "form-item__label--checkbox" do
+          = f.check_box :mail_notification, class: "form-item__checkbox"
+          | 更新日にメールで通知を受け取る
     .form-item--block
       = f.label :password, class: "form-item__label--block"
       = f.password_field :password, class: "form-item__text-input--block", placeholder: "パスワード"
