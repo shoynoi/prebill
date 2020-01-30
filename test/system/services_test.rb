@@ -22,7 +22,7 @@ class ServicesTest < ApplicationSystemTestCase
   end
 
   test "update a service" do
-    service = services(:service_1)
+    service = services(:spotify)
     visit edit_service_path(service)
     fill_in "service[name]", with: "テストサービス(修正)"
     select "年額", from: "プラン"

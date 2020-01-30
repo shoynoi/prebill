@@ -4,30 +4,30 @@ require "test_helper"
 
 class ServiceTest < ActiveSupport::TestCase
   test "is valid" do
-    service = services(:service_1)
+    service = services(:spotify)
     assert service.valid?
   end
 
   test "is invalid when name is blank" do
-    service = services(:service_1)
+    service = services(:spotify)
     service.name = ""
     assert service.invalid?
   end
 
   test "is invalid when plan is blank" do
-    service = services(:service_1)
+    service = services(:spotify)
     service.plan = ""
     assert service.invalid?
   end
 
   test "is invalid when price is not Integer" do
-    service = services(:service_1)
+    service = services(:spotify)
     service.price = "980円"
     assert service.invalid?
   end
 
   test "is valid when price is blank" do
-    service = services(:service_1)
+    service = services(:spotify)
     service.price = ""
     assert service.valid?
   end
@@ -41,16 +41,14 @@ class ServiceTest < ActiveSupport::TestCase
   end
 
   test "annual_total_amount" do
-    Service.delete_all
-    user = users(:shoynoi)
+    user = users(:inactive)
     Service.create(name: "Spotify", plan: "monthly", price: 980, user: user)
     Service.create(name: "Rubymine", plan: "yearly", price: 8000, user: user)
     assert_equal 19760, user.services.annual_total_amount
   end
 
   test "monthly_average_amount" do
-    Service.delete_all
-    user = users(:shoynoi)
+    user = users(:inactive)
     Service.create(name: "Spotify", plan: "monthly", price: 980, user: user)
     Service.create(name: "Rubymine", plan: "yearly", price: 8000, user: user)
     assert_equal 1646, user.services.monthly_average_amount

@@ -16,7 +16,7 @@ amazonprime:
   price: 4800
   renewed_on: <%= Time.current + 3.month %>
   notified_on: <%= Time.current + 1.month %>
-  user: inactive
+  user: akira
 
 rubymine:
   name: Rubymine
@@ -36,3 +36,10 @@ renewal:
   price: 1000
   renewed_on: <%= Date.today %>
   user: shoynoi
+
+other_renewal:
+  name: Other Renewed Service
+  plan: 1
+  price: 2000
+  renewed_on: <%= Date.today %>
+  user: akira
