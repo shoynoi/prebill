@@ -22,11 +22,10 @@ class Service < ApplicationRecord
   def renew!
     case plan
     when "yearly"
-      self.renewed_on += 1.year
+      update!(renewed_on: renewed_on.next_year)
     when "monthly"
-      self.renewed_on += 1.month
+      update!(renewed_on: renewed_on.next_month)
     end
-    save!
   end
 
   private
