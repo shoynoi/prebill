@@ -14,9 +14,9 @@ class UserMailer < ApplicationMailer
          subject: "PreBill パスワードのリセット")
   end
 
-  def renew_service(user)
+  def renew_service(user, services)
     @user = user
-    @services = user.services.renewal
+    @services = services
     mail(to: user.email,
          subject: "PreBill 登録されたサービスが更新されました。")
   end
