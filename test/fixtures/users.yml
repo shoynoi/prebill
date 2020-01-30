@@ -3,15 +3,18 @@ shoynoi:
   email: shoynoi.jp@gmail.com
   salt: <%= salt = "asdasdastr4325234324sdfds" %>
   crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("secret", salt) %>
+  mail_notification: true
 
 akira:
   name: akira
   email: akira@example.com
   salt: <%= salt = "asdasdastr4325234324sdfds" %>
   crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("secret", salt) %>
+  mail_notification: true
 
 inactive:
   name: Inactive User
   email: inactive@example.com
   salt: <%= salt = "asdasdastr4325234324sdfds" %>
   crypted_password: <%= Sorcery::CryptoProviders::BCrypt.encrypt("secret", salt) %>
+  mail_notification: false

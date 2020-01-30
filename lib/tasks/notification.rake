@@ -5,7 +5,7 @@ namespace :notification do
   task renewal: :environment do
     Service.renewal.includes(:user).group_by(&:user).each do |user, services|
       services.each(&:renew!)
-      UserMailer.renew_service(user, services).deliver_now
+      UserMailer.renew_service(user, services).deliver_now if user.mail_notification
     end
   end
 end

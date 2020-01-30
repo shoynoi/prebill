@@ -27,6 +27,7 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認)
+        mail_notification: メール通知
     enums:
       service:
         plan:

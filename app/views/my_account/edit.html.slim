@@ -5,7 +5,7 @@ main.page
   .page-body
     .auth-form--is-update
       .auth-form__body
-        = render "users/form", user: @user, url: my_account_path
+        = render "users/form", form: :edit, user: @user, url: my_account_path
       footer.auth-form__footer
         nav.auth-form-nav
           ul.auth-form-nav__items

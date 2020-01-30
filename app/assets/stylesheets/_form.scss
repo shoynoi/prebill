@@ -17,6 +17,10 @@
 .form-item {
   margin-bottom: 1.5rem;
   display: flex;
+  &--checkbox {
+    align-items: center;
+    order: 1;
+  }
 }
 
 .form-item__help {
@@ -42,6 +46,10 @@
   padding-top: 9px;
   padding-right: 2rem;
   width: 7rem;
+  &--checkbox {
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
 }
 
 .form-item__label--block {
@@ -119,6 +127,7 @@
 
 .form-item__remember-me {
   font-size: .85rem;
+  margin-right: .3rem;
 }
 
 .form-item__checkbox {
