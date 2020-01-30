@@ -55,4 +55,21 @@ class ServiceTest < ActiveSupport::TestCase
     Service.create(name: "Rubymine", plan: "yearly", price: 8000, user: user)
     assert_equal 1646, user.services.monthly_average_amount
   end
+
+  test "renew!" do
+    user = users(:shoynoi)
+    monthly_service = Service.create(name: "Monthly Subscription", plan: "monthly", renewed_on: Date.today, user: user)
+    yearly_service = Service.create(name: "Yearly Subscription", plan: "yearly", renewed_on: Date.today, user: user)
+    assert_changes -> { monthly_service.renewed_on }, from: Date.today, to: Date.today.next_month do
+      monthly_service.renew!
+    end
+    assert_changes -> { yearly_service.renewed_on }, from: Date.today, to: Date.today.next_year do
+      yearly_service.renew!
+    end
+  end
+
+  test "renewal" do
+    renewal_services = services(:renewal, :other_renewal)
+    assert_equal Service.renewal, renewal_services
+  end
 end
