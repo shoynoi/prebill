@@ -18,7 +18,7 @@ ja:
         plan: プラン
         price: 料金
         renewed_on: 更新日
-        notified_on: 通知日
+        remind_on: 通知日
         description: メモ
         created_at: 作成日時
         updated_at: 更新日時

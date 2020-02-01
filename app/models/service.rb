@@ -10,6 +10,7 @@ class Service < ApplicationRecord
   validates :price, numericality: { only_integer: true, allow_blank: true }
 
   scope :renewal, -> { where(renewed_on: Date.today) }
+  scope :notice, -> { where(remind_on: Date.today) }
 
   def self.annual_total_amount
     total_amount("yearly") + (total_amount("monthly") * 12)
