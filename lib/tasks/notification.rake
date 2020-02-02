@@ -9,9 +9,13 @@ namespace :notification do
     end
   end
 
+  desc "Notify user to remind service."
   task remind: :environment do
     Service.remind.includes(:user).group_by(&:user).each do |user, services|
-      UserMailer.remind_services(user, services).deliver_now
+      unless user.remind_sent_at.try(:between?, Date.today.beginning_of_day, Date.today.end_of_day)
+        UserMailer.remind_services(user, services).deliver_now
+        user.touch(:remind_sent_at)
+      end
     end
   end
 end
