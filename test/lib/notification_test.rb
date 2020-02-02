@@ -27,4 +27,11 @@ class NotificationTest < ActiveSupport::TestCase
       assert_equal ActionMailer::Base.deliveries.count, 0
     end
   end
+
+  test "remind services" do
+    travel_to Time.zone.parse("2020-12-31") do
+      Rake::Task["notification:remind"].execute
+      assert_equal ActionMailer::Base.deliveries.count, 1
+    end
+  end
 end

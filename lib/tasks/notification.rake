@@ -8,4 +8,10 @@ namespace :notification do
       UserMailer.renew_service(user, services).deliver_now if user.mail_notification
     end
   end
+
+  task remind: :environment do
+    Service.remind.includes(:user).group_by(&:user).each do |user, services|
+      UserMailer.remind_services(user, services).deliver_now
+    end
+  end
 end
