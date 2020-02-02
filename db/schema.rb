@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_01_040305) do
+ActiveRecord::Schema.define(version: 2020_02_02_053618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2020_02_01_040305) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.datetime "remind_sent_at"
+    t.index ["remind_sent_at"], name: "index_services_on_remind_sent_at"
     t.index ["renewed_on"], name: "index_services_on_renewed_on"
     t.index ["user_id"], name: "index_services_on_user_id"
   end
@@ -43,8 +45,10 @@ ActiveRecord::Schema.define(version: 2020_02_01_040305) do
     t.datetime "reset_password_email_sent_at"
     t.integer "access_count_to_reset_password_page", default: 0
     t.boolean "mail_notification", default: false, null: false
+    t.datetime "remind_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
+    t.index ["remind_sent_at"], name: "index_users_on_remind_sent_at"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
