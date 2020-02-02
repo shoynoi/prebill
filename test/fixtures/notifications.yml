@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service_id: one
+  read: false
+
+two:
+  service_id: two
+  read: false
