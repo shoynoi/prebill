@@ -6,7 +6,7 @@ spotify:
   plan: 0
   price: 980
   renewed_on: <%= Time.current + 1.month %>
-  notified_on: <%= Time.current + 1.week %>
+  remind_on: <%= Time.current + 1.week %>
   user: shoynoi
 
 amazonprime:
@@ -15,7 +15,7 @@ amazonprime:
   plan: 1
   price: 4800
   renewed_on: <%= Time.current + 3.month %>
-  notified_on: <%= Time.current + 1.month %>
+  remind_on: <%= Time.current + 1.month %>
   user: akira
 
 rubymine:
@@ -25,7 +25,7 @@ rubymine:
   plan: 1
   price: 8000
   renewed_on: 2021-01-25
-  notified_on: 2020-12-31
+  remind_on: 2020-12-31
   user: shoynoi
 
 renewal:

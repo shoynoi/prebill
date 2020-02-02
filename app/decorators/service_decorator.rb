@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module ServiceDecorator
-  def formatted_notified_on
-    if Date.current.year == notified_on.year
-      I18n.l notified_on, format: :short
+  def formatted_remind_on
+    if Date.current.year == remind_on.year
+      I18n.l remind_on, format: :short
     else
-      I18n.l notified_on
+      I18n.l remind_on
     end
   end
 

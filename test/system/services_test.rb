@@ -13,7 +13,7 @@ class ServicesTest < ApplicationSystemTestCase
     select "月額", from: "プラン"
     fill_in "service[price]", with: 1200
     fill_in "service[renewed_on]", with: "2019/12/31"
-    fill_in "service[notified_on]", with: "2019/12/20"
+    fill_in "service[remind_on]", with: "2019/12/20"
     fill_in "service[description]", with: "テストメモ"
     assert_difference "Service.count", 1 do
       click_on "登録"
@@ -28,7 +28,7 @@ class ServicesTest < ApplicationSystemTestCase
     select "年額", from: "プラン"
     fill_in "service[price]", with: 1800
     fill_in "service[renewed_on]", with: "2020/1/10"
-    fill_in "service[notified_on]", with: "2020/01/05"
+    fill_in "service[remind_on]", with: "2020/01/05"
     fill_in "service[description]", with: "テストメモ(修正)"
     click_on "修正"
     assert_text "サービスを修正しました。"

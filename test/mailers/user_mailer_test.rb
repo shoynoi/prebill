@@ -54,4 +54,22 @@ class UserMailerTest < ActionMailer::TestCase
     assert_match %r(こんにちは、#{user.name}さん。\r\n本日更新日を迎えたサービスをお知らせいたします。), mail.text_part.body.to_s
     assert_match %r(#{services.first.name}), mail.text_part.body.to_s
   end
+
+  test "remind_services" do
+    user = users(:shoynoi)
+    services = [services(:rubymine)]
+    mail = UserMailer.remind_services(user, services)
+
+    assert_emails 1 do
+      mail.deliver_now
+    end
+
+    assert_equal "PreBill サービス更新のリマインド", mail.subject
+    assert_equal ["shoynoi.jp@gmail.com"], mail.to
+    assert_equal ["info@prebill.com"], mail.from
+    assert_match %r(こんにちは、#{user.name}さん。登録されているサブスクリプションがもうすぐ更新されます。), mail.html_part.body.to_s
+    assert_match %r(Rubymine), mail.html_part.body.to_s
+    assert_match %r(こんにちは、#{user.name}さん。\r\n登録されているサブスクリプションがもうすぐ更新されます。), mail.text_part.body.to_s
+    assert_match %r(Rubymine), mail.text_part.body.to_s
+  end
 end

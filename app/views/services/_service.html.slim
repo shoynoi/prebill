@@ -11,8 +11,8 @@
       - if service.renewed_on
         = service.formatted_renewed_on
     .list__item
-      - if service.notified_on
-        = service.formatted_notified_on
+      - if service.remind_on
+        = service.formatted_remind_on
     .list__item.list__item--button.col-sm
       label.list__expand(for="service-#{service.id}")
   .list--expandable

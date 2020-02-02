@@ -39,7 +39,7 @@ class ServicesController < ApplicationController
         :plan,
         :price,
         :renewed_on,
-        :notified_on)
+        :remind_on)
     end
 
     def load_service
