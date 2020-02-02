@@ -12,7 +12,8 @@ class UserMailerPreview < ActionMailer::Preview
   # Preview this email at http://localhost:3000/rails/mailers/user_mailer/renew_service
   def renew_service
     user = User.find_by(name: "shoynoi")
-    UserMailer.renew_service(user)
+    services = user.services.renewal
+    UserMailer.renew_service(user, services)
   end
 
   # Preview this email at http://localhost:3000/rails/mailers/user_mailer/remind_services
