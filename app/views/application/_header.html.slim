@@ -6,6 +6,21 @@ header.header
       - if logged_in?
         .header-nav__items
           .header-nav__item
+            .header-notification
+              label.header-notification__label(for="header-notification")
+                .header-notification__icon
+                  span.fa.fa-bell
+              input.header-notification__toggle#header-notification(type="checkbox")
+              .header-dropdown
+                label.header-dropdown__background(for="header-notification")
+                .header-dropdown__inner.is-notification
+                  .header-dropdown__header
+                    | 通知
+                  .header-dropdown__content
+                    ul.header-dropdown__items
+                      - current_user.notifications.recent.each do |notification|
+                        li.js-notification(data-service-name="#{notification.service.name}" data-renewed_on="#{notification.service.formatted_renewed_on}" data-created_at="#{time_ago_in_words(notification.created_at)}" data-notification-id="#{notification.id}")
+          .header-nav__item
             label.header-nav__item--label(for="header-user-menu")
               .header-nav__item--dropdown
                 = current_user.name

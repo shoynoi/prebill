@@ -3,6 +3,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
   has_many :services, dependent: :destroy
+  has_many :notifications, through: :services
 
   validates :password, length: { minimum: 6 }, confirmation: true, if: :password_required?
   validates :email, uniqueness: true, presence: true
