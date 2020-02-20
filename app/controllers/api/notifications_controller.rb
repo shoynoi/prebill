@@ -5,10 +5,6 @@ class Api::NotificationsController < ApplicationController
     @notifications = current_user.notifications.recent
   end
 
-  def show
-    @notification = Notification.find_by(id: params[:id])
-  end
-
   def update
     @notification = current_user.notifications.find_by(id: params[:id])
     @notification.update(read: true)
