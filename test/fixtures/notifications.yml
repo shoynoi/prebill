@@ -1,9 +1,4 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-#one:
-#  service_id: one
-#  read: false
-#
-#two:
-#  service_id: two
-#  read: false
+notification_renewal:
+  service: renewal
+  read: false
+  message: Renewed Serviceが更新されました。次回の更新日は2020年3月20日です。
