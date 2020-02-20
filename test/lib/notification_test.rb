@@ -50,4 +50,12 @@ class NotificationTest < ActiveSupport::TestCase
       assert_equal 0, ActionMailer::Base.deliveries.count
     end
   end
+
+  test "create notification in app" do
+    travel_to Time.zone.parse("2020-12-31") do
+      assert_difference "Notification.count", 1 do
+        Rake::Task["notification:renewal"].execute
+      end
+    end
+  end
 end
