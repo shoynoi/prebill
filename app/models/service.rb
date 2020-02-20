@@ -4,7 +4,7 @@ class Service < ApplicationRecord
   enum plan: { monthly: 0, yearly: 1 }
 
   belongs_to :user
-  has_many :notifications
+  has_many :notifications, dependent: :destroy
 
   validates :name, presence: true
   validates :plan, presence: true
