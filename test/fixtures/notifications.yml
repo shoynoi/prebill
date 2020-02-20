@@ -1,0 +1,4 @@
+notification_renewal:
+  service: renewal
+  read: false
+  message: Renewed Serviceが更新されました。次回の更新日は2020年3月20日です。

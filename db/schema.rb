@@ -12,9 +12,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_20_043306) do
+ActiveRecord::Schema.define(version: 2020_02_20_083936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "service_id", null: false
+    t.boolean "read", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "message"
+    t.index ["service_id"], name: "index_notifications_on_service_id"
+  end
 
   create_table "services", force: :cascade do |t|
     t.string "name", null: false
@@ -53,5 +62,6 @@ ActiveRecord::Schema.define(version: 2020_02_20_043306) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
+  add_foreign_key "notifications", "services"
   add_foreign_key "services", "users"
 end

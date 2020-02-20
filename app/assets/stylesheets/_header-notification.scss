@@ -1,0 +1,43 @@
+.header-notification {
+  position: relative;
+  height: 100%;
+}
+
+.header-notification__icon {
+  font-weight: bold;
+  padding: 2px 7px;
+  color: #fafafa;
+  position: relative;
+  &:hover {
+    color: white;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 4px;
+  }
+}
+
+.header-notification__label {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  color: rgba(38,52,74,.5);
+  cursor: pointer;
+}
+
+.header-notification__toggle {
+  display: none;
+}
+
+.header-notification__header {
+  padding: .5rem 1rem;
+}
+
+.header-notification__badge {
+  background: red;
+  width: .5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  position: absolute;
+  right: .25rem;
+  top: .25rem;
+}

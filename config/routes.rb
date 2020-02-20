@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     get "close" => "my_account#close"
   end
   resources :password_resets, only: %i(new create edit update)
+  namespace :api do
+    resources :notifications, only: %i(index update)
+  end
 
   get "signup" => "users#new"
   post "signup" => "users#create"
