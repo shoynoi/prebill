@@ -57,7 +57,7 @@ class ServiceTest < ActiveSupport::TestCase
   test "renewal" do
     renewal_services = services(:renewal, :other_renewal)
     travel_to Time.zone.parse("2020-01-31") do
-      assert_equal Service.renewal, renewal_services
+      assert_equal renewal_services, Service.renewal
     end
   end
 
