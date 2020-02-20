@@ -125,9 +125,7 @@
 }
 
 .header-dropdown__item {
-  padding: .75rem;
   font-size: .875rem;
-  display: flex;
   transition: all ease-out .2s;
   &.unread {
     background-color: #F6F7FB;
@@ -141,6 +139,7 @@
 
 .header-dropdown__item-link {
   display: block;
+  padding: .75rem;
 }
 
 .header-dropdown__background {
@@ -156,10 +155,16 @@
   font-size: .875rem;
   font-weight: bold;
   padding: .5rem;
+  border-bottom: 1px solid rgba(34, 36, 38, 0.2);
+}
+
+.header-dropdown__container {
+  display: flex;
+  padding: .75rem;
 }
 
 .header-dropdown__text-holder {
-  margin-right: .5rem;
+  margin-left: .5rem;
 }
 
 .header-dropdown__text {

@@ -1,15 +1,17 @@
 <template>
   <ul class="header-dropdown__items">
     <li class="header-dropdown__item" v-bind:class="[notification.read ? '' : 'unread']" @click="push(notification)" v-for="notification in notifications">
-      <div class="header-dropdown__text-holder">
-        <p class="header-dropdown__text">
-          {{ notification.message }}
-        </p>
-        <time class="header-dropdown__time-holder">
-          {{ notification.created_at }}前
-        </time>
+      <div class="header-dropdown__container">
+        <div class="header-dropdown__unread-icon" v-bind:class="[notification.read ? 'is-read' : '']"></div>
+        <div class="header-dropdown__text-holder">
+          <p class="header-dropdown__text">
+            {{ notification.message }}
+          </p>
+          <time class="header-dropdown__time-holder">
+            {{ notification.created_at }}前
+          </time>
+        </div>
       </div>
-      <div class="header-dropdown__unread-icon" v-bind:class="[notification.read ? 'is-read' : '']"></div>
     </li>
   </ul>
 </template>
