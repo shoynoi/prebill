@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   resources :password_resets, only: %i(new create edit update)
   namespace :api do
-    resources :notifications, only: %i(show update)
+    resources :notifications, only: %i(index show update)
   end
 
   get "signup" => "users#new"

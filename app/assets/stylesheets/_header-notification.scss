@@ -1,3 +1,7 @@
+.header-notification {
+  position: relative;
+}
+
 .header-notification__icon {
   font-weight: bold;
   padding: 2px 7px;
@@ -24,4 +28,14 @@
 
 .header-notification__header {
   padding: .5rem 1rem;
+}
+
+.header-notification__badge {
+  background: red;
+  width: .5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  position: absolute;
+  right: .25rem;
+  top: .25rem;
 }

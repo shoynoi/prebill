@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 class Api::NotificationsController < ApplicationController
+  def index
+    @notifications = current_user.notifications.recent
+  end
+
   def show
     @notification = Notification.find_by(id: params[:id])
-    render json: @notification
   end
 
   def update

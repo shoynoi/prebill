@@ -1,15 +1,17 @@
 <template>
-  <div class="header-dropdown__item" v-bind:class="[isRead ? '' : 'unread']" @click="push">
-    <div class="header-dropdown__text-holder">
-      <p class="header-dropdown__text">
-        「{{ serviceName }}」が更新されました！次回の更新日は{{ renewedOn }}です。
-      </p>
-      <time class="header-dropdown__time-holder">
-        {{ createdAt }}前
-      </time>
-    </div>
-    <div class="header-dropdown__unread-icon" v-bind:class="[isRead ? 'is-read' : '']"></div>
-  </div>
+  <ul class="header-dropdown__items">
+    <li class="header-dropdown__item" v-bind:class="[notification.read ? '' : 'unread']" @click="push(notification)" v-for="notification in notifications">
+      <div class="header-dropdown__text-holder">
+        <p class="header-dropdown__text">
+          「{{ notification.service.name }}」が更新されました！次回の更新日は{{ notification.service.renewed_on }}です。
+        </p>
+        <time class="header-dropdown__time-holder">
+          {{ notification.created_at }}前
+        </time>
+      </div>
+      <div class="header-dropdown__unread-icon" v-bind:class="[notification.read ? 'is-read' : '']"></div>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -22,36 +24,47 @@
   };
 
   export default {
-    props: ["serviceName", "renewedOn", "createdAt", "notificationId"],
     data() {
       return {
+        notifications: null,
         isRead: false
       }
     },
     mounted() {
-      axios.get(`/api/notifications/${this.notificationId}.json`)
-      .then(response => {
-        return response.data.read
-      })
-      .then(read => {
-        this.isRead = read
-      })
-      .catch(error => {
-        console.warn('Failed to parsing.')
-      })
+      axios.get(`/api/notifications.json`)
+        .then(response => {
+          return response.data
+        })
+        .then(json => {
+          this.notifications = json
+        })
+        .catch(error => {
+          console.warn('Failed to parsing.')
+        })
     },
     methods: {
-      push() {
-        if (this.isRead) return;
-        axios.patch(`/api/notifications/${this.notificationId}`, {
-          id: this.notificationId,
+      push(notification) {
+        if (notification.read) return;
+        axios.patch(`/api/notifications/${notification.id}`, {
+          id: notification.id,
           read: true,
         })
         .then(response => {
-          this.isRead = true
+          notification.read = true
+        })
+        .then(response => {
+          if (this.isAllChecked(this.notifications)) {
+            const i = document.querySelector('.header-notification__badge')
+            i.classList.remove('header-notification__badge')
+          }
         })
         .catch(error => {
           console.warn("Failed to parsing.")
+        })
+      },
+      isAllChecked(notifications) {
+        return notifications.every((notification) => {
+          return notification.read
         })
       }
     },
