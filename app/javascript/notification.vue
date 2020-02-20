@@ -3,7 +3,7 @@
     <li class="header-dropdown__item" v-bind:class="[notification.read ? '' : 'unread']" @click="push(notification)" v-for="notification in notifications">
       <div class="header-dropdown__text-holder">
         <p class="header-dropdown__text">
-          「{{ notification.service.name }}」が更新されました！次回の更新日は{{ notification.service.renewed_on }}です。
+          {{ notification.message }}
         </p>
         <time class="header-dropdown__time-holder">
           {{ notification.created_at }}前

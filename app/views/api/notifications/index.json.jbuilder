@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 json.array! @notifications do |notification|
-  json.(notification, :id, :read, :created_at)
-  json.service do
-    json.name notification.service.name
-    json.renewed_on notification.service.renewed_on
-  end
+  json.id notification.id
+  json.read notification.read
+  json.message notification.message
+  json.created_at time_ago_in_words notification.created_at
 end
