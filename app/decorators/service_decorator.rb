@@ -11,9 +11,9 @@ module ServiceDecorator
 
   def formatted_renewed_on
     if Date.current.year == renewed_on.year
-      I18n.l renewed_on, format: :short
+      I18n.l next_renewed_on, format: :short
     else
-      I18n.l renewed_on
+      I18n.l next_renewed_on
     end
   end
 end

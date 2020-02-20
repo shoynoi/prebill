@@ -54,22 +54,51 @@ class ServiceTest < ActiveSupport::TestCase
     assert_equal 1646, user.services.monthly_average_amount
   end
 
-  test "renew!" do
-    user = users(:shoynoi)
-    monthly_service = Service.create(name: "Monthly Subscription", plan: "monthly", renewed_on: Date.today, user: user)
-    yearly_service = Service.create(name: "Yearly Subscription", plan: "yearly", renewed_on: Date.today, user: user)
-    assert_changes -> { monthly_service.renewed_on }, from: Date.today, to: Date.today.next_month do
-      monthly_service.renew!
-    end
-    assert_changes -> { yearly_service.renewed_on }, from: Date.today, to: Date.today.next_year do
-      yearly_service.renew!
-    end
-  end
-
   test "renewal" do
     renewal_services = services(:renewal, :other_renewal)
     travel_to Time.zone.parse("2020-01-31") do
-      assert_equal Service.renewal, renewal_services
+      assert_equal renewal_services, Service.renewal
+    end
+  end
+
+  test "#next_renewed_on of every month" do
+    user = users(:shoynoi)
+    service = user.services.create(name: "monthly update", plan: 0, renewed_on: Date.parse("2020-10-29"), user: user)
+    travel_to Time.zone.parse("2020-10-29") do
+      assert_equal Date.parse("2020-10-29"), service.next_renewed_on
+    end
+    travel_to Time.zone.parse("2020-10-30") do
+      assert_equal Date.parse("2020-11-29"), service.next_renewed_on
+    end
+    travel_to Time.zone.parse("2020-11-30") do
+      assert_equal Date.parse("2020-12-29"), service.next_renewed_on
+    end
+  end
+
+  test "#next_renewed_on of every year" do
+    user = users(:shoynoi)
+    service = user.services.create(name: "yearly update", plan: 1, renewed_on: Date.parse("2020-02-29"), user: user)
+    travel_to Time.zone.parse("2020-02-29") do
+      assert_equal Date.parse("2020-02-29"), service.next_renewed_on
+    end
+    travel_to Time.zone.parse("2020-03-01") do
+      assert_equal Date.parse("2021-02-28"), service.next_renewed_on
+    end
+    travel_to Time.zone.parse("2023-03-01") do
+      assert_equal Date.parse("2024-02-29"), service.next_renewed_on
+    end
+  end
+
+  test "#next_renewed_on of every end of month" do
+    service = services(:renewal)
+    travel_to Time.zone.parse("2020-01-31") do
+      assert_equal Date.parse("2020-01-31"), service.next_renewed_on
+    end
+    travel_to Time.zone.parse("2020-02-01") do
+      assert_equal Date.parse("2020-02-29"), service.next_renewed_on
+    end
+    travel_to Time.zone.parse("2020-03-01") do
+      assert_equal Date.parse("2020-03-31"), service.next_renewed_on
     end
   end
 end
