@@ -15,7 +15,17 @@ class NotificationTest < ActiveSupport::TestCase
     end
   end
 
-  test "do not send mail if user do not want to receive" do
+  test "do not send email if user already receive renewal email" do
+    travel_to Time.zone.parse("2020-01-31") do
+      Rake::Task["notification:renewal"].execute
+      assert_equal 2, ActionMailer::Base.deliveries.count
+      ActionMailer::Base.deliveries.clear
+      Rake::Task["notification:renewal"].execute
+      assert_equal 0, ActionMailer::Base.deliveries.count
+    end
+  end
+
+  test "do not send email if user do not want to receive" do
     user = users(:inactive)
     user.services.create(name: "No notification", plan: 0, renewed_on: "2020-10-10")
     travel_to Time.zone.parse("2020-10-10") do
