@@ -12,6 +12,6 @@ html
     - unless request.path == signup_path || request.path == login_path
       = render "header"
     .container
-    - unless request.path == login_path
-      = render "flash"
-    = yield
+      - unless request.path == login_path
+        = render "flash"
+      = yield
