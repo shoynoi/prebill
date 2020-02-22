@@ -1,0 +1,30 @@
+.welcome-page {
+  font-size: 0.95rem;
+  border: 1px solid #ddd;
+  background-color: white;
+  min-height: calc(100vh - 3rem);
+  padding: 1rem 1.875rem 0;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.06);
+}
+.welcome-page__header {
+  margin: 1rem 0;
+}
+
+.tos {
+  padding-bottom: 1rem;
+}
+
+.is-long-text {
+  > h2 {
+    margin-bottom: .5rem;
+  }
+  > p {
+    margin-bottom: 1rem;
+  }
+  > ol {
+    margin: 1rem 0 1rem 2rem;
+    > li {
+      margin-bottom: .2rem;
+    }
+  }
+}
