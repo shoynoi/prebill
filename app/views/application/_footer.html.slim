@@ -1,0 +1,13 @@
+footer.footer
+  .container
+    .footer-nav
+      .footer-nav__items
+        .footer-nav__item
+          = link_to "利用規約", tos_path, class: "footer-nav__link"
+        .footer-nav__item
+          = link_to "プライバシーポリシー", policy_path, class: "footer-nav__link"
+    .footer-copyright
+      small
+        i.far.fa-copyright
+        span.footer-copyright__author shoynoi
+        span = Date.today.year
