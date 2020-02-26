@@ -21,6 +21,13 @@
 
 .header-nav {
   height: 100%;
+  position: relative;
+}
+
+@media (max-width: 480px) {
+  .header-nav {
+    position: static;
+  }
 }
 
 .header-nav__items {
@@ -40,13 +47,6 @@
   position: relative;
   height: 100%;
 }
-
-@media (max-width: 480px) {
-  .header-menu {
-    position: static;
-  }
-}
-
 
 .header-menu__label {
   display: flex;
