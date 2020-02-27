@@ -66,6 +66,14 @@
   font-size: .875rem;
   color: black;
   flex: 1 1 auto;
+  &--select {
+    @extend .form-item__text-input;
+    outline: none;
+    &:focus {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
 }
 
 .form-item__text-input--block {

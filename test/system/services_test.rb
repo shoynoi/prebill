@@ -58,4 +58,16 @@ class ServicesTest < ApplicationSystemTestCase
       assert_text "Amazon Prime"
     end
   end
+
+  test "autocomplete input when filled in service name" do
+    visit new_service_path
+    fill_in "service[name]", with: "hu"
+    within(".autocomplete") do
+      assert_text "Hulu"
+      find(".selected").click
+    end
+    assert_equal "Hulu", find("#service_name").value
+    assert_equal "monthly", find("#service_plan").value
+    assert_equal "1026", find("#service_price").value
+  end
 end
