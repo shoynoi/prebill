@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePresetServices < ActiveRecord::Migration[6.0]
   def change
     create_table :preset_services do |t|
