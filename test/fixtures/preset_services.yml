@@ -17,3 +17,48 @@ youtube_premium:
   name: Youtubeプレミアム
   plan: 0
   price: 1180
+
+spotify:
+  name: Spotify
+  plan: 0
+  price: 980
+
+apple_music:
+  name: Apple Music
+  plan: 0
+  price: 980
+
+hulu:
+  name: Hulu
+  plan: 0
+  price: 1026
+
+d_magazine:
+  name: dマガジン
+  plan: 0
+  price: 400
+
+rakuten_magazine_monthly:
+  name: 楽天マガジン(月額プラン)
+  plan: 0
+  price: 380
+
+rakuten_magazine_yearly:
+  name: 楽天マガジン(年間プラン)
+  plan: 1
+  price: 3600
+
+apple_arcade:
+  name: Apple Arcade
+  plan: 0
+  price: 600
+
+nintendo_switch_online_monthly:
+  name: Nintendo Switch Online(月額プラン)
+  plan: 0
+  price: 306
+
+nintendo_switch_online_yearly:
+  name: Nintendo Switch Online(年間プラン)
+  plan: 1
+  price: 2400
