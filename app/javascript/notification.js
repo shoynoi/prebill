@@ -1,6 +1,6 @@
 import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue'
-import Notification from '../notification.vue'
+import Notification from './notification.vue'
 
 Vue.use(TurbolinksAdapter);
 
