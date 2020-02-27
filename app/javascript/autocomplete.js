@@ -1,4 +1,5 @@
 import autocomplete from "autocompleter";
+import axios from "axios"
 
 document.addEventListener("turbolinks:load", () => {
   const serviceName = document.querySelector("#service_name");
@@ -8,21 +9,30 @@ document.addEventListener("turbolinks:load", () => {
 
   const servicePlan = document.querySelector("#service_plan");
   const servicePrice = document.querySelector("#service_price");
-  let countries = [
-    { label: "Amazon Prime月額プラン", value: "XX", plan: 0, price: 500 },
-    { label: "Amazon Prime年間プラン", value: "XX", plan: 1, price: 4900 }
-  ];
+  let serviceList = []
+  axios.get("/api/preset_services.json")
+    .then(responce => {
+      return responce.data
+    })
+    .then(json => {
+      serviceList = json
+    })
 
   autocomplete({
     input: serviceName,
+    render: function(item, currentValue) {
+      let div = document.createElement("div");
+      div.textContent = item.name;
+      return div;
+    },
     fetch: function(text, update) {
       text = text.toLowerCase();
-      // you can also use AJAX requests instead of preloaded data
-      let suggestions = countries.filter(n => n.label.toLowerCase().startsWith(text));
+      let suggestions = serviceList.filter(n => n.name.toLowerCase().startsWith(text));
       update(suggestions);
     },
+    preventSubmit: true,
     onSelect: function(item) {
-      serviceName.value = item.label;
+      serviceName.value = item.name;
       servicePlan.selectedIndex = item.plan;
       servicePrice.value = item.price;
     }

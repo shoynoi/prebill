@@ -1,0 +1,19 @@
+netflix_basic:
+  name: Netflix(ベーシック)
+  plan: 0
+  price: 800
+
+netflix_standard:
+  name: Netflix(スタンダード)
+  plan: 0
+  price: 1200
+
+netflix_premium:
+  name: Netflix(プレミアム)
+  plan: 0
+  price: 1800
+
+youtube_premium:
+  name: Youtubeプレミアム
+  plan: 0
+  price: 1180

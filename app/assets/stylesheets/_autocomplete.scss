@@ -1,0 +1,22 @@
+.autocomplete {
+  background: white;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-radius: 4px;
+  z-index: 10;
+  //padding: .5rem;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.06);
+}
+
+.autocomplete > div {
+  padding: .5rem;
+  font-size: .875rem;
+  border-bottom: 1px dotted #ddd;
+}
+
+.autocomplete > div:hover {
+  background-color: #EAEBF0;
+  //border-radius: 4px;
+  cursor: pointer;
+}

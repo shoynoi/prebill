@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i(new create edit update)
   namespace :api do
     resources :notifications, only: %i(index update)
+    resources :preset_services, only: %i(index)
   end
 
   get "signup" => "users#new"
