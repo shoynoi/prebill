@@ -7,13 +7,13 @@
       = t "activerecord.enums.service.plan.#{service.plan}"
     .list__item.col-sm
       = number_to_currency(service.price)
-    .list__item
+    .list__item--renewed_on
       - if service.renewed_on
         = service.formatted_renewed_on
-    .list__item
+    .list__item--remind_on
       - if service.remind_on
         = service.formatted_remind_on
-    .list__item.list__item--button.col-sm
+    .list__item.list__item--button
       label.list__expand(for="service-#{service.id}")
   .list--expandable
     .list__item.list__item--memo

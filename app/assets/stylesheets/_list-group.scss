@@ -1,13 +1,19 @@
 .list-group__labels {
   display: flex;
   padding: 0 1.5rem;
+  @media (max-width: 960px) {
+    display: none;
+  }
 }
 
 .list-group__label {
   flex: 1 1 15%;
-  padding: 0 5px;
   font-size: .8rem;
   color: #666666;
+  &--button {
+    @extend .list-group__label;
+    flex: 0 1 5%
+  }
   &.col-lg {
     flex: 1 1 25%;
   }
