@@ -24,81 +24,14 @@
   }
 }
 
-.list__item {
-  flex: 1 1 15%;
-  font-size: 14.5px;
-  @media(max-width: 960px) {
-    font-size: 13px;
-  }
-  &--name {
-    font-size: 15px;
-    font-weight: 600;
-    @media(max-width: 960px) {
-      font-size: 14px;
-    }
-  }
-  &--renewed_on {
-    @extend .list__item;
-    @media(max-width: 960px) {
-      flex: 0 0 auto;
-      font-size: .75rem;
-      order: 5;
-      margin-top: .25rem;
-      &::before {
-        font-weight: 900;
-        font-size: .6rem;
-        content: "\f021";
-        font-family: "Font Awesome 5 Free";
-        margin-right: .3rem;
-      }
-    }
-  }
-  &--remind_on {
-    @extend .list__item;
-    @media(max-width: 960px) {
-      flex: 1 0 auto;
-      padding: 0 5px;
-      font-size: .75rem;
-      margin-top: .25rem;
-      order: 6;
-      &::before {
-        font-weight: 400;
-        font-size: .75rem;
-        content: "\f0f3";
-        font-family: "Font Awesome 5 Free";
-        margin-right: .2rem;
-      }
-    }
-  }
-  &--button {
-    flex: 0 1 5%;
-    @media(max-width: 960px) {
-      flex: 0 1 10%;
-    }
-    text-align: center;
-  }
-  &.col-lg {
-    flex: 1 1 25%;
-    @media(max-width: 960px) {
-      flex: 1 1 64%;
-    }
-  }
-  &.col-sm {
-    flex: 1 1 10%;
-    @media(max-width: 960px) {
-      flex: 0 1 10%;
-    }
-  }
-}
-
-.list__expand-toggle {
+.list__toggle {
   display: none;
 }
 
 .list__expand {
   display: inline-block;
-  width: 27px;
-  height: 27px;
+  width: 24px;
+  height: 24px;
   background-color: #DDE5F0;
   border-radius: 50%;
   transition: all ease .2s;
@@ -121,11 +54,6 @@
     transform: rotateX(180deg);
     top: 2px;
   }
-}
-
-.list__item--memo {
-  padding: 1rem 5px;
-  font-size: .895rem;
 }
 
 .list__actions {

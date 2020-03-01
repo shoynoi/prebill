@@ -1,0 +1,79 @@
+.list-item {
+  flex: 1 1 15%;
+  font-size: .9rem;
+  @media(max-width: 960px) {
+    font-size: .8125rem;
+  }
+  &__title {
+    font-size: .95rem;
+    font-weight: 600;
+    @media(max-width: 960px) {
+      font-size: .875rem;
+    }
+  }
+  &__renewal {
+    @extend .list-item;
+    @media(max-width: 960px) {
+      flex: 0 0 auto;
+      order: 5;
+      margin-top: .3rem;
+    }
+  }
+  &__renewal-text {
+    @media(max-width: 960px) {
+      font-size: .75rem;
+      &::before {
+        font-weight: 900;
+        font-size: .6rem;
+        content: "\f021";
+        font-family: "Font Awesome 5 Free";
+        margin-right: .3rem;
+      }
+    }
+  }
+  &__remind {
+    @extend .list-item;
+    @media(max-width: 960px) {
+      padding: 0 5px;
+      margin-top: .3rem;
+      order: 6;
+    }
+  }
+  &__remind-text {
+    @media(max-width: 960px) {
+      font-size: .75rem;
+      &::before {
+        font-weight: 400;
+        font-size: .75rem;
+        content: "\f0f3";
+        font-family: "Font Awesome 5 Free";
+        margin-right: .2rem;
+      }
+    }
+  }
+  &__button {
+    flex: 0 1 5%;
+    @media(max-width: 960px) {
+      flex: 0 1 10%;
+    }
+    text-align: center;
+  }
+  &.col-lg {
+    flex: 1 1 25%;
+    @media(max-width: 960px) {
+      flex: 1 1 64%;
+    }
+  }
+  &.col-sm {
+    flex: 1 1 10%;
+    @media(max-width: 960px) {
+      flex: 0 1 10%;
+    }
+  }
+}
+
+.list-item__memo {
+  padding: 1rem 5px;
+  font-size: .895rem;
+}
+
