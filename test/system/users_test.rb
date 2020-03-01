@@ -12,7 +12,7 @@ class UsersTest < ApplicationSystemTestCase
     assert_difference "User.count", 1 do
       click_button "ユーザー登録"
     end
-    assert_text "アカウントを作成しました。"
+    assert_text "アカウントを作成しました！"
   end
 
   test "show errors in sign up form when invalid" do
