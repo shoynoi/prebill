@@ -10,7 +10,7 @@ class ServicesController < ApplicationController
   def create
     @service = current_user.services.build(service_params)
     if @service.save
-      redirect_to root_path, notice: "新しいサービスを登録しました。"
+      redirect_to root_path, notice: "サービスを登録しました。"
     else
       render :new
     end

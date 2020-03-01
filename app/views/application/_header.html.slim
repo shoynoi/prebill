@@ -20,18 +20,19 @@ header.header
                     | 通知
                   .header-dropdown__content#js-notification
           .header-nav__item
-            label.header-nav__item--label(for="header-user-menu")
-              .header-nav__item--dropdown
-                = current_user.name
-            input.header-nav__item--input#header-user-menu(type="checkbox")
-            .header-dropdown
-              label.header-dropdown__background(for="header-user-menu")
-              .header-dropdown__inner
-                ul.header-dropdown__items
-                  li.header-dropdown__item
-                    = link_to "ユーザー設定", edit_my_account_path, class: "header-dropdown__item-link"
-                  li.header-dropdown__item
-                    = link_to "ログアウト", logout_path, method: :delete, class: "header-dropdown__item-link"
+            .header-menu
+              label.header-menu__label(for="header-user-menu")
+                .header-menu__dropdown
+                  = current_user.name
+              input.header-menu__toggle#header-user-menu(type="checkbox")
+              .header-dropdown
+                label.header-dropdown__background(for="header-user-menu")
+                .header-dropdown__inner
+                  ul.header-dropdown__items
+                    li.header-dropdown__item
+                      = link_to "ユーザー設定", edit_my_account_path, class: "header-dropdown__item-link"
+                    li.header-dropdown__item
+                      = link_to "ログアウト", logout_path, method: :delete, class: "header-dropdown__item-link"
       - else
         .header-nav__items
           .header-nav__item

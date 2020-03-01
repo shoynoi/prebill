@@ -19,6 +19,12 @@ body {
     align-items: center;
     height: 3rem;
     width: 100%;
+    @media (max-width: 480px) {
+      padding: 0 2%;
+    }
+  }
+  @media (max-width: 480px) {
+    padding: 0;
   }
 }
 

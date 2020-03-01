@@ -21,6 +21,9 @@
     align-items: center;
     order: 1;
   }
+  @media(max-width: 480px) {
+    display: block;
+  }
 }
 
 .form-item__help {
@@ -50,6 +53,13 @@
     font-weight: 600;
     font-size: 0.875rem;
   }
+  @media (max-width: 480px) {
+    display: block;
+    text-align: unset;
+    margin-bottom: .2rem;
+    padding: unset;
+    width: unset;
+  }
 }
 
 .form-item__label--block {
@@ -73,6 +83,10 @@
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
+  }
+  @media (max-width: 480px) {
+    width: 100%;
+    flex: unset;
   }
 }
 
@@ -131,6 +145,10 @@
   height: 6rem;
   resize: vertical;
   flex: 1 1 auto;
+  @media (max-width: 480px) {
+    width: 100%;
+    flex: unset;
+  }
 }
 
 .form-item__remember-me {

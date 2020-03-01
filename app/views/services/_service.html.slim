@@ -1,22 +1,25 @@
 .list
-  input.list__expand-toggle id="service-#{service.id}" type="checkbox"
+  input.list__toggle id="service-#{service.id}" type="checkbox"
   .list--display
-    .list__item.list__item--name.col-lg
-      = service.name
-    .list__item.col-sm
+    .list-item.col-lg
+      span.list-item__title
+        = service.name
+    .list-item.col-sm
       = t "activerecord.enums.service.plan.#{service.plan}"
-    .list__item.col-sm
+    .list-item.col-sm
       = number_to_currency(service.price)
-    .list__item
+    .list-item__renewal
       - if service.renewed_on
-        = service.formatted_renewed_on
-    .list__item
+        span.list-item__renewal-text
+          = service.formatted_renewed_on
+    .list-item__remind
       - if service.remind_on
-        = service.formatted_remind_on
-    .list__item.list__item--button.col-sm
+        span.list-item__remind-text
+          = service.formatted_remind_on
+    .list-item.list-item__button
       label.list__expand(for="service-#{service.id}")
   .list--expandable
-    .list__item.list__item--memo
+    .list-item.list-item__memo
       = auto_link(simple_format(h(service.description), sanitize: true), html: { target: "_blank" })
     .list__actions
       .list__action

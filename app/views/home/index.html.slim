@@ -35,6 +35,6 @@ main.page
             = Service.human_attribute_name(:renewed_on)
           .list-group__label
             = Service.human_attribute_name(:remind_on)
-          .list-group__label.col-sm
+          .list-group__label--button
         .list-group__inner
           = render partial: "services/service", collection: @services, as: :service
