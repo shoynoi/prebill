@@ -1,0 +1,108 @@
+.welcome {
+  margin: 3.5rem 0;
+}
+
+.firstview {
+  margin-bottom: 3.5rem;
+}
+
+.firstview__items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media(max-width: 960px) {
+    flex-direction: column;
+  }
+}
+
+.firstview__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  @media(max-width: 960px) {
+    margin-bottom: 3rem;
+    width: 100%;
+  }
+}
+
+.firstview__title {
+  font-family: "American Typewriter";
+  line-height: 1.2;
+  font-size: 4rem;
+  margin-bottom: .2rem;
+}
+
+.firstview__subtitle {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.firstview__image {
+  width: 50%;
+  @media(max-width: 960px) {
+    width: 100%;
+  }
+}
+
+.welcome__section {
+  background-color: white;
+  padding: 2rem 0;
+}
+
+.welcome__features {
+  @media(min-width: 960px) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.welcome-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 33.33%;
+  padding: 0 2rem;
+  flex-wrap: wrap;
+  @media(max-width: 960px) {
+    flex-flow: row nowrap;
+    flex: unset;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding: 0;
+    justify-content: center;
+    &:nth-child(even) {
+    flex-direction: row-reverse;
+    }
+  }
+}
+
+.welcome-feature__body {
+  background-color: white;
+  @media(max-width: 960px) {
+    width: 55%;
+  }
+}
+
+.welcome-feature__image {
+  background-color: white;
+  margin-bottom: .8rem;
+  @media(max-width: 960px) {
+    margin-right: 1rem;
+    height: 100%;
+    margin-bottom: 0;
+  }
+}
+
+.welcome-feature__description {
+  font-size: .94rem;
+}
+
+.welcome-feature__header {
+  font-size: 1.2rem;
+  margin-bottom: .5rem;
+}
