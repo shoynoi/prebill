@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_081354) do
+ActiveRecord::Schema.define(version: 2020_03_02_085731) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2020_02_26_081354) do
 
   create_table "preset_services", force: :cascade do |t|
     t.string "name", null: false, comment: "名前"
-    t.integer "plan", null: false, comment: "プラン"
-    t.integer "price", null: false, comment: "料金"
+    t.integer "plan", comment: "プラン"
+    t.integer "price", comment: "料金"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_preset_services_on_name", unique: true
