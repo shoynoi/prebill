@@ -1,0 +1,14 @@
+id,name,plan,price
+1,Netflix(ベーシック),0,800
+2,Netflix(スタンダード),0,1200
+3,Netflix(プレミアム),0,1000
+4,Youtubeプレミアム,0,1180
+5,Spotify,0,980
+6,Apple Music,0,980
+7,Hulu,0,1026
+8,dマガジン,0,400
+9,楽天マガジン(月額プラン),0,380
+10,楽天マガジン(年間プラン),1,3600
+11,Apple Arcade,0,600
+12,Nintendo Switch Online(月額プラン),0,306
+13,Nintendo Switch Online(年間プラン),1,2400
