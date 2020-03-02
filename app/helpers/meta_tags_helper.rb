@@ -17,6 +17,7 @@ module MetaTagsHelper
       },
       twitter: {
         card: "summary",
+        title: "PreBill",
         image: "https://prebill.me/ogp/ogp.png",
         description: :description,
       }
