@@ -5,8 +5,8 @@ module MetaTagsHelper
     {
       site: "PreBill",
       reverse: true,
-      title: "PreBill",
       description: "サブスクに特化した支出管理+リマインダーサービス。",
+      separator: " -",
       og: {
         title: :title,
         type: "website",
