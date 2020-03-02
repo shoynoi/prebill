@@ -1,14 +1,14 @@
 doctype html
 html
   head
-    title
-      | Prebill
+    = display_meta_tags default_meta_tags
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     = favicon_link_tag("/favicon.ico")
+    = render "favicons"
   body
     = render "header"
     .container
