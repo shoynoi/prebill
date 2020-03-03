@@ -47,18 +47,6 @@ class ServicesTest < ApplicationSystemTestCase
     end
   end
 
-  test "only services associated with the user will be displayed" do
-    visit root_path
-    within(".list-group") do
-      assert_text "Spotify"
-    end
-    login_user "akira@example.com", "secret"
-    within(".list-group") do
-      assert_no_text "Spotify"
-      assert_text "Amazon Prime"
-    end
-  end
-
   test "autocomplete input when filled in service name" do
     visit new_service_path
     fill_in "service[name]", with: "hu"

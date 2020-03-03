@@ -1,0 +1,43 @@
+.assist {
+  margin-top: 3rem;
+}
+
+.assist__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.assist__image {
+  margin-bottom: 1rem;
+}
+
+.assist__text {
+  font-size: 1.15rem;
+  @media (max-width: 960px) {
+    margin-bottom: 1rem;
+  }
+}
+
+.assist__message {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
+}
+
+.assist__icon {
+  color: #2274E5;
+  transition: all .5s ease;
+  @media (min-width: 960px) {
+    &:hover {
+      color: #1267E6;
+      transform: rotate(180deg);
+    }
+  }
+}

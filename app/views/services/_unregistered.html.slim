@@ -1,0 +1,9 @@
+.assist
+  .assist__container
+    = image_tag "no_data.svg", class: "assist__image", width: "200", height: "200"
+    .assist__message
+      p.assist__text
+        | サービスを登録して、管理を始めましょう！
+      .assist__link
+        = link_to new_service_path do
+          i.assist__icon.fas.fa-plus-circle.fa-3x
