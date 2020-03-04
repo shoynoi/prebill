@@ -18,7 +18,11 @@ header.header
                 .header-dropdown__inner.is-notification
                   .header-dropdown__header
                     | 通知
-                  .header-dropdown__content#js-notification
+                  - if current_user.notifications.any?
+                    .header-dropdown__content#js-notification
+                  - else
+                    p.header-dropdown__container
+                      | 通知はありません
           .header-nav__item
             .header-menu
               label.header-menu__label(for="header-user-menu")

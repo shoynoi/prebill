@@ -24,19 +24,22 @@ main.page
 
   .page-body
     h3.page-body__title 利用中のサービス
-    .page-body__inner
-      .list-group
-        .list-group__labels
-          .list-group__label.col-lg
-            = Service.human_attribute_name(:name)
-          .list-group__label.col-sm
-            = Service.human_attribute_name(:plan)
-          .list-group__label.col-sm
-            = Service.human_attribute_name(:price)
-          .list-group__label
-            = Service.human_attribute_name(:renewed_on)
-          .list-group__label
-            = Service.human_attribute_name(:remind_on)
-          .list-group__label--button
-        .list-group__inner
-          = render partial: "services/service", collection: @services, as: :service
+    - if current_user.services.any?
+      .page-body__inner
+        .list-group
+          .list-group__labels
+            .list-group__label.col-lg
+              = Service.human_attribute_name(:name)
+            .list-group__label.col-sm
+              = Service.human_attribute_name(:plan)
+            .list-group__label.col-sm
+              = Service.human_attribute_name(:price)
+            .list-group__label
+              = Service.human_attribute_name(:renewed_on)
+            .list-group__label
+              = Service.human_attribute_name(:remind_on)
+            .list-group__label--button
+          .list-group__inner
+            = render partial: "services/service", collection: @services, as: :service
+    - else
+      = render partial: "services/unregistered"
