@@ -1,10 +1,10 @@
-- title "ユーザー登録"
+- title "アカウント作成"
 
 h1.auth-form-logo
   = link_to "PreBill", root_path, class: "auth-form-logo__link"
 .auth-form
   header.auth-form__header
-    h1.auth-form__title ユーザー登録
+    h1.auth-form__title アカウント作成
   .auth-form__body
     = render "form", form: :new, user: @user, url: signup_path
   footer.auth-form__footer

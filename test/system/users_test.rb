@@ -10,7 +10,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "user[password]", with: "testtest"
     fill_in "user[password_confirmation]", with: "testtest"
     assert_difference "User.count", 1 do
-      click_button "ユーザー登録"
+      click_button "アカウント作成"
     end
     assert_text "アカウントを作成しました！"
   end
@@ -21,7 +21,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "user[email]", with: ""
     fill_in "user[password]", with: ""
     fill_in "user[password_confirmation]", with: ""
-    click_button "ユーザー登録"
+    click_button "アカウント作成"
     assert_text "入力内容にエラーがありました。"
   end
 
