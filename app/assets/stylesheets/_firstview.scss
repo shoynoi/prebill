@@ -36,6 +36,9 @@
 .firstview__subtitle {
   font-size: 1.6rem;
   margin-bottom: 1rem;
+  @media(max-width: 480px) {
+    line-height: 1.4;
+  }
 }
 
 .firstview__image {
