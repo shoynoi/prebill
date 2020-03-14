@@ -15,7 +15,7 @@
     .welcome__features
       .welcome-feature
         .welcome-feature__image
-          = image_tag "management.svg", width: "150", height: "150"
+          = image_tag "management.svg"
         .welcome-feature__body
           h1.welcome-feature__header
             | サブスクを一元管理
@@ -23,17 +23,19 @@
             | 利用中のサービスの料金や更新時期をまとめて管理できます。
       .welcome-feature
         .welcome-feature__image
-          = image_tag "money.svg", width: "150", height: "150"
+          = image_tag "money.svg"
         .welcome-feature__body
           h1.welcome-feature__header
-            | 利用額が一目でわかる
+            | 利用額が
+            br.welcome-feature__break 一目でわかる
           p.welcome-feature__description
             | 何にどれだけお金を使っているのかを一目で確認できます。
       .welcome-feature
         .welcome-feature__image
-          = image_tag "email.svg", width: "150", height: "150"
+          = image_tag "email.svg"
         .welcome-feature__body
           h1.welcome-feature__header
-            | 更新が近づいたらメールでお知らせ
+            | 更新が近づいたら
+            br.welcome-feature__break メールでお知らせ
           p.welcome-feature__description
             | 更新日が近づいたら設定した日にメールで通知されるので、うっかり更新されてしまうことを防ぎます。

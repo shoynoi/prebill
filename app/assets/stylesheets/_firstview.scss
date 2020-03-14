@@ -112,3 +112,10 @@
   font-size: 1.2rem;
   margin-bottom: .5rem;
 }
+
+.welcome-feature__break {
+  display: none;
+  @media(max-width: 480px) {
+    display: inline;
+  }
+}
