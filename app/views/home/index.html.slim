@@ -1,13 +1,6 @@
-- title "Dashboard"
+- title "利用中のサービス"
 
 main.page
-  header.page-header
-    h2.page-header__title Dashboard
-    .page-header__actions
-      = link_to new_service_path, class: "btn--full btn--primary btn--md" do
-        i.fas.fa-plus-circle
-        | 新規登録
-
   .card-container
     .card.card--yellow
       .card__body
@@ -23,7 +16,12 @@ main.page
           = number_to_currency(@services.annual_total_amount)
 
   .page-body
-    h3.page-body__title 利用中のサービス
+    .page-body__header
+      h3.page-body__title 利用中のサービス
+      .page-body__actions
+        = link_to new_service_path, class: "btn--full btn--primary btn--md" do
+          i.fas.fa-plus-circle
+          | 新規登録
     - if current_user.services.any?
       .page-body__inner
         .list-group
