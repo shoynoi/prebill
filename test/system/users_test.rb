@@ -40,6 +40,21 @@ class UsersTest < ApplicationSystemTestCase
     assert_text "メールを確認して、アカウントを有効化してください。"
   end
 
+  test "can not login when account activation token is expired" do
+    visit signup_path
+    fill_in "user[name]", with: "testuser"
+    fill_in "user[email]", with: "test@example.com"
+    fill_in "user[password]", with: "testtest"
+    fill_in "user[password_confirmation]", with: "testtest"
+    click_button "アカウントを作成する"
+    travel_to 1.month.since do
+      token = User.find_by(email: "test@example.com").activation_token
+      visit activate_user_path(token)
+      assert_current_path root_path
+      assert_text "トークンの有効期限が切れています"
+    end
+  end
+
   test "update user" do
     login_user "shoynoi.jp@gmail.com", "secret"
     visit edit_my_account_path

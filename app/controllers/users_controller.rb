@@ -18,12 +18,20 @@ class UsersController < ApplicationController
   end
 
   def activate
-    if @user = User.load_from_activation_token(params[:id])
-      @user.activate!
-      auto_login(@user)
-      redirect_to root_path, notice: "メールアドレスの確認が完了しました！"
-    else
-      not_authenticated
+    User.load_from_activation_token(params[:id]) do |user, failure|
+      if user && !failure
+        user.activate!
+        auto_login(user)
+        redirect_to root_path, notice: "メールアドレスの確認が完了しました！"
+      else
+        case failure
+        when :invalid_token, :user_not_found
+          flash[:alert] = "不正なトークンです"
+        when :token_expired
+          flash[:alert] = "トークンの有効期限が切れています"
+        end
+        redirect_to root_path
+      end
     end
   end
 
