@@ -11,6 +11,11 @@ Rails.application.routes.draw do
     resources :notifications, only: %i(index update)
     resources :preset_services, only: %i(index)
   end
+  resources :users, only: [] do
+    member do
+      get :activate
+    end
+  end
 
   get "signup" => "users#new"
   post "signup" => "users#create"

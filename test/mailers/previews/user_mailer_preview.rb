@@ -22,4 +22,10 @@ class UserMailerPreview < ActionMailer::Preview
     services = user.services.remind
     UserMailer.remind_services(user, services)
   end
+
+  # Preview this email at http://localhost:3000/rails/mailers/user_mailer/activation_needed_email
+  def activation_needed_email
+    user = User.find_by(name: "shoynoi")
+    UserMailer.activation_needed_email(user)
+  end
 end
