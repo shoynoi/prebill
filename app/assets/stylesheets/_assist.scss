@@ -12,6 +12,12 @@
 
 .assist__image {
   margin-bottom: 1rem;
+  width: 200px;
+  height: 200px;
+  @media (max-width: 480px) {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .assist__text {
