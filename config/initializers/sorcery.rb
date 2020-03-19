@@ -285,13 +285,13 @@ Rails.application.config.sorcery.configure do |config|
     # How long in seconds the session length will be
     # Default: `60 * 60 * 24 * 7`
     #
-    # user.remember_me_for =
+    user.remember_me_for = 256.weeks
 
     # When true, sorcery will persist a single remember me token for all
     # logins/logouts (to support remembering on multiple browsers simultaneously).
     # Default: false
     #
-    # user.remember_me_token_persist_globally =
+    user.remember_me_token_persist_globally = true
 
     # -- user_activation --
     # The attribute name to hold activation state (active/pending).
