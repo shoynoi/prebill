@@ -17,6 +17,7 @@
       flex: 0 0 auto;
       order: 5;
       margin-top: .3rem;
+      padding-right: 5px;
     }
   }
   &__renewal-text {
@@ -34,7 +35,6 @@
   &__remind {
     @extend .list-item;
     @media(max-width: 960px) {
-      padding: 0 5px;
       margin-top: .3rem;
       order: 6;
     }

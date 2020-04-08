@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_085731) do
+ActiveRecord::Schema.define(version: 2020_03_15_021238) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,6 +64,10 @@ ActiveRecord::Schema.define(version: 2020_03_02_085731) do
     t.boolean "mail_notification", default: false, null: false
     t.datetime "remind_sent_at"
     t.datetime "renewal_sent_at"
+    t.string "activation_state"
+    t.string "activation_token"
+    t.datetime "activation_token_expires_at"
+    t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
     t.index ["remind_sent_at"], name: "index_users_on_remind_sent_at"

@@ -25,7 +25,7 @@ class SignInTest < ApplicationSystemTestCase
     assert_no_text "Dashboard"
     login_user "shoynoi.jp@gmail.com", "secret"
     visit root_path
-    assert_text "Dashboard"
+    assert_text "利用中のサービス"
   end
 
   test "require login" do

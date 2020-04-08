@@ -133,7 +133,8 @@
   }
   @media (max-width: 480px) {
     &.is-notification {
-      width: 100vw;
+      width: calc(100vw - 1rem);
+      margin: 0 .5rem;
     }
   }
 }

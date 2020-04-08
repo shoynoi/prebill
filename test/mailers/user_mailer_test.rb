@@ -72,4 +72,23 @@ class UserMailerTest < ActionMailer::TestCase
     assert_match %r(こんにちは、#{user.name}さん。\r\n登録されているサブスクリプションがもうすぐ更新されます。), mail.text_part.body.to_s
     assert_match %r(Rubymine), mail.text_part.body.to_s
   end
+
+  test "activation_needed_email" do
+    user = users(:inactivated)
+    user.setup_activation
+    mail = UserMailer.activation_needed_email(user)
+
+    assert_emails 1 do
+      mail.deliver_now
+    end
+
+    assert_equal "PreBill メールアドレスの確認", mail.subject
+    assert_equal ["inactivated@example.com"], mail.to
+    assert_equal ["info@prebill.me"], mail.from
+    assert_match "PreBillへ会員登録していただき、ありがとうございます。", mail.html_part.body.to_s
+    activation_url = "#{ActionMailer::Base.default_url_options[:host]}:#{ActionMailer::Base.default_url_options[:port]}/users/#{user.activation_token}/activate"
+    assert_match %r(#{activation_url}), mail.html_part.body.to_s
+    assert_match "PreBillへ会員登録していただき、ありがとうございます。", mail.text_part.body.to_s
+    assert_match %r(#{activation_url}), mail.text_part.body.to_s
+  end
 end

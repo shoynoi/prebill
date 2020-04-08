@@ -11,7 +11,7 @@ class HomeTest < ApplicationSystemTestCase
   test "GET root path with sign in" do
     login_user "shoynoi.jp@gmail.com", "secret"
     visit root_path
-    assert_equal "Dashboard - PreBill", title
+    assert_equal "利用中のサービス - PreBill", title
   end
 
   test "only services associated with the user will be displayed" do

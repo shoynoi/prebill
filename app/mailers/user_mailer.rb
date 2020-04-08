@@ -27,4 +27,10 @@ class UserMailer < ApplicationMailer
     mail(to: user.email,
          subject: "PreBill サービス更新のリマインド")
   end
+
+  def activation_needed_email(user)
+    @user = user
+    @url  = activate_user_url(@user.activation_token)
+    mail(to: user.email, subject: "PreBill メールアドレスの確認")
+  end
 end
