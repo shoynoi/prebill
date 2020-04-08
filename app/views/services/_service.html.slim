@@ -8,12 +8,12 @@
       = t "activerecord.enums.service.plan.#{service.plan}"
     .list-item.col-sm
       = number_to_currency(service.price)
-    .list-item__renewal
-      - if service.renewed_on
+    - if service.renewed_on
+      .list-item__renewal
         span.list-item__renewal-text
           = service.formatted_renewed_on
-    .list-item__remind
-      - if service.remind_on
+    - if service.remind_on
+      .list-item__remind
         span.list-item__remind-text
           = service.formatted_remind_on
     .list-item.list-item__button
