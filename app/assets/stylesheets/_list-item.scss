@@ -17,12 +17,12 @@
       flex: 0 0 auto;
       order: 5;
       margin-top: .3rem;
-      padding-right: 5px;
     }
   }
   &__renewal-text {
     @media(max-width: 960px) {
       font-size: .75rem;
+      padding-right: 5px;
       &::before {
         font-weight: 900;
         font-size: .6rem;
@@ -76,4 +76,3 @@
   padding: 1rem 5px;
   font-size: .895rem;
 }
-
