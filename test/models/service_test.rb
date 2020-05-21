@@ -72,4 +72,9 @@ class ServiceTest < ActiveSupport::TestCase
       assert_equal Date.parse("2020-03-31"), service.next_renewed_on
     end
   end
+
+  test "#next_renewed_on return nil if renewed_on is nil" do
+    service = services(:service1)
+    assert_equal nil, service.next_renewed_on
+  end
 end

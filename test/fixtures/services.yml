@@ -43,3 +43,11 @@ other_renewal:
   price: 2000
   renewed_on: 2020-01-31
   user: akira
+
+service1:
+  name: Example Service
+  plan: 1
+  price: nil
+  renewed_on: nil
+  remind_on: nil
+  user: shoynoi

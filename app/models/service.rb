@@ -25,6 +25,7 @@ class Service < ApplicationRecord
   end
 
   def next_renewed_on(n = 0)
+    return nil unless renewed_on
     case plan
     when "monthly"
       renewed_on.next_month(number_of_renewal + n)
