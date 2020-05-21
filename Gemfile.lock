@@ -113,7 +113,7 @@ GEM
     meta-tags (2.13.0)
       actionpack (>= 3.2.0, < 6.1)
     method_source (0.9.2)
-    mimemagic (0.3.3)
+    mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.13.0)
@@ -276,7 +276,7 @@ DEPENDENCIES
   meta-tags
   pg (>= 0.18, < 2.0)
   puma (~> 4.3)
-  rails (~> 6.0.1)
+  rails (~> 6.0.2.1)
   rails-i18n (~> 6.0.0)
   rails_autolink
   rubocop
