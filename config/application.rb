@@ -33,11 +33,10 @@ module Prebill
       html_tag.html_safe
     end
     config.generators do |g|
-      g.test_framework :rspec,
-                       fixtures: false,
-                       view_specs: false,
-                       helper_specs: false,
-                       routing_specs: false
+        g.test_framework :rspec,
+                         view_specs: false,
+                         helper_specs: false,
+                         routing_specs: false
       end
   end
 end
