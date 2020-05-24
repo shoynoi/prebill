@@ -3,10 +3,8 @@
 require "rails_helper"
 
 RSpec.describe Notification, type: :model do
-  let(:user) { create(:user) }
-
   describe "renew_service" do
-    let(:notified_service) { create(:service, renewed_on: Date.today, user: user) }
+    let(:notified_service) { create(:service, renewed_on: Date.today) }
     it "create notification" do
       expect {
         Notification.renew_service(notified_service)
@@ -15,20 +13,18 @@ RSpec.describe Notification, type: :model do
   end
 
   describe "recent" do
-    let(:service) { create(:service, user: user) }
-    let(:notification1) { create(:notification, service: service, created_at: Date.today - 2) }
-    let(:notification2) { create(:notification, service: service, created_at: Date.yesterday) }
-    let(:notification3) { create(:notification, service: service, created_at: Date.today) }
+    let(:notify_day_before_yesterday) { create(:notification, :notify_day_before_yesterday) }
+    let(:notify_yesterday) { create(:notification, :notify_yesterday) }
+    let(:notify_today) { create(:notification, :notify_today) }
 
-    it "returns recent notifications by descending order" do
-      expect(Notification.recent).to match([notification3, notification2, notification1])
+    it "returns recent notifications by created_at descending order" do
+      expect(Notification.recent).to match([notify_today, notify_yesterday, notify_day_before_yesterday])
     end
   end
 
   describe "unread" do
-    let(:service) { create(:service, user: user) }
-    let(:read_notification) { create(:notification, service: service, read: true) }
-    let(:unread_notification) { create(:notification, service: service, read: false) }
+    let(:unread_notification) { create(:notification) }
+    let(:read_notification) { create(:notification, :already_read) }
 
     it "returns unread notification" do
       expect(Notification.unread).to match([unread_notification])

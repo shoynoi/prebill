@@ -8,14 +8,14 @@ RSpec.describe Service, type: :model do
   it { is_expected.to validate_numericality_of(:price) }
 
   describe "#remind" do
-    let(:service1) { create(:service, remind_on: Date.yesterday) }
-    let(:service2) { create(:service, remind_on: Date.today) }
-    let(:service3) { create(:service, remind_on: Date.tomorrow) }
+    let(:remind_yesterday) { create(:service, :remind_yesterday) }
+    let(:remind_today) { create(:service, :remind_today) }
+    let(:remind_tomorrow) { create(:service, :remind_tomorrow) }
 
     context "when service is found" do
       it "returns services that remind_on is today" do
-        expect(Service.remind).to contain_exactly(service2)
-        expect(Service.remind).to_not contain_exactly(service1, service3)
+        expect(Service.remind).to contain_exactly(remind_today)
+        expect(Service.remind).to_not contain_exactly(remind_yesterday, remind_tomorrow)
       end
     end
 
@@ -29,14 +29,14 @@ RSpec.describe Service, type: :model do
   end
 
   describe "#renewal" do
-    let!(:service1) { create(:service, renewed_on: Date.yesterday) }
-    let!(:service2) { create(:service, renewed_on: Date.today) }
-    let!(:service3) { create(:service, renewed_on: Date.tomorrow) }
+    let!(:renewal_yesterday) { create(:service, :renewal_yesterday) }
+    let!(:renewal_today) { create(:service, :renewal_today) }
+    let!(:renewal_tomorrow) { create(:service, :renewal_tomorrow) }
 
     context "when service is found" do
       it "returns services that renewed_on is today" do
-        expect(Service.renewal).to contain_exactly(service2)
-        expect(Service.renewal).to_not contain_exactly(service1, service3)
+        expect(Service.renewal).to contain_exactly(renewal_today)
+        expect(Service.renewal).to_not contain_exactly(renewal_yesterday, renewal_tomorrow)
       end
     end
 
@@ -53,8 +53,8 @@ RSpec.describe Service, type: :model do
     let(:user) { create(:user) }
 
     context "when service has a price" do
-      let!(:service1) { create(:service, plan: 0, price: 1000, user: user) }
-      let!(:service2) { create(:service, plan: 1, price: 2000, user: user) }
+      let!(:monthly_service) { create(:service, price: 1000, user: user) }
+      let!(:yearly_service) { create(:service, :plan_yearly, price: 2000, user: user) }
 
       it "returns annual total amount" do
         expect(user.services.annual_total_amount).to eq 14000
@@ -62,8 +62,8 @@ RSpec.describe Service, type: :model do
     end
 
     context "when service has not price" do
-      let!(:service1) { create(:service, plan: 0, price: nil, user: user) }
-      let!(:service2) { create(:service, plan: 1, price: nil, user: user) }
+      let!(:monthly_service) { create(:service, plan: 0, price: nil, user: user) }
+      let!(:yearly_service) { create(:service, plan: 1, price: nil, user: user) }
 
       it "return 0" do
         expect(user.services.annual_total_amount).to eq 0
@@ -75,8 +75,8 @@ RSpec.describe Service, type: :model do
     let(:user) { create(:user) }
 
     context "when service has a price" do
-      let!(:service1) { create(:service, plan: 0, price: 1000, user: user) }
-      let!(:service2) { create(:service, plan: 1, price: 2000, user: user) }
+      let!(:monthly_service) { create(:service, price: 1000, user: user) }
+      let!(:yearly_service) { create(:service, :plan_yearly, price: 2000, user: user) }
 
       it "returns monthly average amount" do
         expect(user.services.monthly_average_amount).to eq 1166
@@ -84,8 +84,8 @@ RSpec.describe Service, type: :model do
     end
 
     context "when service has not price" do
-      let!(:service1) { create(:service, plan: 0, price: nil, user: user) }
-      let!(:service2) { create(:service, plan: 1, price: nil, user: user) }
+      let!(:monthly_service) { create(:service, plan: 0, price: nil, user: user) }
+      let!(:yearly_service) { create(:service, plan: 1, price: nil, user: user) }
 
       it "returns 0" do
         expect(user.services.monthly_average_amount).to eq 0
@@ -97,38 +97,24 @@ RSpec.describe Service, type: :model do
     let(:user) { create(:user) }
 
     context "when plan is monthly" do
-      let(:service1) { create(:service, plan: 0, renewed_on: Time.zone.parse("2020-04-30"), user: user) }
-      let(:service2) { create(:service, plan: 0, renewed_on: Time.zone.parse("2021-01-31"), user: user) }
+      let(:service) { create(:service, plan: 0, renewed_on: Time.zone.parse("2021-01-31"), user: user) }
 
       it "returns next monthly renewal date" do
-        travel_to(Time.zone.parse("2020-05-01")) do
-          expect(service1.next_renewed_on).to eq Date.parse("2020-05-30")
-        end
-      end
-
-      it "returns next end of the month when renewed_on is end of month" do
         travel_to(Time.zone.parse("2021-02-01")) do
-          expect(service2.next_renewed_on).to eq Date.parse("2021-02-28")
+          expect(service.next_renewed_on).to eq Date.parse("2021-02-28")
         end
         travel_to(Time.zone.parse("2021-03-01")) do
-          expect(service2.next_renewed_on).to eq Date.parse("2021-03-31")
+          expect(service.next_renewed_on).to eq Date.parse("2021-03-31")
         end
       end
     end
 
     context "when plan is yearly" do
-      let(:service1) { create(:service, plan: 1, renewed_on: Time.zone.parse("2020-04-30"), user: user) }
-      let(:service2) { create(:service, plan: 1, renewed_on: Time.zone.parse("2020-02-29"), user: user) }
+      let(:service) { create(:service, plan: 1, renewed_on: Time.zone.parse("2020-02-29"), user: user) }
 
       it "returns next yearly renewal date" do
-        travel_to(Time.zone.parse("2020-05-01")) do
-          expect(service1.next_renewed_on).to eq Date.parse("2021-04-30")
-        end
-      end
-
-      it "returns the end of the following year when renewed_on is end of month" do
         travel_to(Time.zone.parse("2020-03-01")) do
-          expect(service2.next_renewed_on).to eq Date.parse("2021-02-28")
+          expect(service.next_renewed_on).to eq Date.parse("2021-02-28")
         end
       end
     end
