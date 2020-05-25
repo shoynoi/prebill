@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :notification do
     association :service
     read { false }
-    message { "テストサービスが更新されました。" }
+    message { "#{service.name}が更新されました。" }
 
     trait :notify_today do
       created_at { Date.today }
