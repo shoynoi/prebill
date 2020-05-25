@@ -7,5 +7,11 @@ FactoryBot.define do
     salt { "asdasdastr4325234324sdfds" }
     password { "secret" }
     password_confirmation { "secret" }
+
+    trait :activated do
+      after(:create) do |user|
+        user.activate!
+      end
+    end
   end
 end
