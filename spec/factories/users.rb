@@ -17,5 +17,13 @@ FactoryBot.define do
     trait :inactivated do
       activation_state { "pending" }
     end
+
+    trait :reject_to_receive do
+      mail_notification { false }
+    end
+
+    trait :accept_to_receive do
+      mail_notification { true }
+    end
   end
 end
