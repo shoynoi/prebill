@@ -13,5 +13,9 @@ FactoryBot.define do
         user.activate!
       end
     end
+
+    trait :inactivated do
+      activation_state { "pending" }
+    end
   end
 end
