@@ -56,7 +56,9 @@
                 <td align="left" width="40%" style="padding: 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"><%= service.name %></td>
                 <td align="left" width="15%" style="padding: 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"><%= t "activerecord.enums.service.plan.#{service.plan}"%></td>
                 <td align="left" width="15%" style="padding: 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"><%= number_to_currency(service.price) %></td>
-                <td align="left" width="30%" style="padding: 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"><%= l service.next_renewed_on(1) %></td>
+                <% if service.renewed_on %>
+                  <td align="left" width="30%" style="padding: 12px;font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"><%= l service.next_renewed_on %></td>
+                <% end %>
               </tr>
             <% end %>
           </table>

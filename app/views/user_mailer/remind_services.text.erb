@@ -7,7 +7,9 @@
   サービス名: <%= service.name %>
   プラン: <%= t "activerecord.enums.service.plan.#{service.plan}"%>
   料金: <%= number_to_currency(service.price) %>
-  更新日: <%= l service.next_renewed_on(1) %>
+  <% if service.renewed_on %>
+    更新日: <%= l service.next_renewed_on %>
+  <% end %>
   ======================================
 <% end %>
 

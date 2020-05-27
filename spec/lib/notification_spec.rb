@@ -47,10 +47,10 @@ describe "notification" do
       end
     end
 
-    context "when a service's renewed_on is nil" do # FIXME
-      let!(:remind_service) { create(:service, :remind_today, user: user, renewed_on: nil) }
-      it "has an error" do
-        expect { task.invoke }.to raise_error ActionView::Template::Error
+    context "when a service's renewed_on is nil" do
+      let!(:remind_service) { create(:service, :remind_today, user: user, renewed_on: nil, price: nil) }
+      it "sends an email to remind service" do
+        expect { task.invoke }.to change { ActionMailer::Base.deliveries.count }.by(1)
       end
     end
   end
