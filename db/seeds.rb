@@ -12,5 +12,5 @@ when "production"
       )
   end
 when "development"
-  Rake::Task["db:fixtures:load"].execute
+  load(Rails.root.join("db/seeds/development.rb"))
 end
