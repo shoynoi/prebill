@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, notice: "アカウントを作成しました！メールアドレスを確認してアカウントを有効化してください。"
+      redirect_to root_path, notice: "アカウントを作成しました！メールボックスを確認してアカウントを有効化してください。"
     else
       render :new, layout: "welcome"
     end
