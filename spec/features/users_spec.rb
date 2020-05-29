@@ -17,7 +17,7 @@ RSpec.feature "Users", type: :feature do
       }.to change(User, :count).by(1)
     end
 
-    expect(page).to have_content("アカウントを作成しました！メールアドレスを確認してアカウントを有効化してください。")
+    expect(page).to have_content("アカウントを作成しました！メールボックスを確認してアカウントを有効化してください。")
     expect(current_path).to eq root_path
 
     mail = ActionMailer::Base.deliveries.last
