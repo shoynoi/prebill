@@ -7,7 +7,7 @@
     "@rails/webpacker": "4.2.2",
     "autocompleter": "^6.0.2",
     "axios": "^0.19.2",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "pug-plain-loader": "^1.0.0",
     "turbolinks": "^5.2.0",
     "vue": "^2.6.11",
